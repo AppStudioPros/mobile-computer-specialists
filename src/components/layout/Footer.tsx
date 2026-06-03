@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -7,9 +8,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="text-2xl font-black mcs-gradient-text-on-dark mb-3">
-              M.cs
-            </div>
+            <Image
+              src="/brand/logo-white-trimmed.png"
+              alt="Mobile Computer Specialists"
+              width={1544}
+              height={584}
+              className="h-12 w-auto mb-4"
+            />
             <p className="text-sm text-white/55 mb-6 max-w-sm leading-relaxed">
               Mobile Computer Specialists. Denver&apos;s trusted IT service for
               over 26 years. We come to you.

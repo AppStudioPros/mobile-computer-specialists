@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -36,13 +37,15 @@ export default function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <span className="text-xl lg:text-2xl font-black tracking-tight">
-            <span className="mcs-gradient-text">M.cs</span>
-          </span>
-          <span className="hidden md:inline text-[10px] lg:text-xs text-[var(--color-mcs-muted)] font-semibold tracking-widest uppercase">
-            Mobile Computer Specialists
-          </span>
+        <Link href="/" className="flex items-center group">
+          <Image
+            src="/brand/logo-trimmed.png"
+            alt="Mobile Computer Specialists"
+            width={1544}
+            height={584}
+            priority
+            className="h-9 lg:h-10 w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}
