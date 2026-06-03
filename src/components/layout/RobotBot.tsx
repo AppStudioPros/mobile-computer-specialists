@@ -2,11 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import LordIcon from "@/components/ui/LordIcon";
-
-// Cute animated robot head from Lordicon (free CDN, no auth needed)
-const ROBOT_ICON = "https://cdn.lordicon.com/zfqzlhpe.json";
-const SEND_ICON = "https://cdn.lordicon.com/jvbqlntj.json";
+import RobotHead from "@/components/ui/RobotHead";
 
 type Message = {
   role: "bot" | "user";
@@ -55,13 +51,8 @@ export default function RobotBot() {
         className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full mcs-gradient-blue shadow-lg shadow-[var(--color-mcs-blue)]/40 flex items-center justify-center group"
         aria-label="Open chat"
       >
-        <div className="w-12 h-12">
-          <LordIcon
-            src={ROBOT_ICON}
-            trigger="loop"
-            colors="primary:#ffffff,secondary:#ffb547"
-            size={48}
-          />
+        <div className="text-white">
+          <RobotHead size={36} primaryColor="#ffffff" accentColor="#ffb547" />
         </div>
         {!open && (
           <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[var(--color-mcs-amber)] animate-pulse" />
@@ -80,13 +71,8 @@ export default function RobotBot() {
           >
             {/* Header */}
             <div className="px-5 py-4 mcs-gradient-blue text-white flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center backdrop-blur-sm">
-                <LordIcon
-                  src={ROBOT_ICON}
-                  trigger="loop"
-                  colors="primary:#ffffff,secondary:#ffb547"
-                  size={32}
-                />
+              <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center backdrop-blur-sm text-white">
+                <RobotHead size={26} primaryColor="#ffffff" accentColor="#ffb547" />
               </div>
               <div>
                 <div className="text-sm font-bold">MCS Assistant</div>

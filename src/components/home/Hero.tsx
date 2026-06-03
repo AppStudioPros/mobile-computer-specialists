@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import TechBackground from "@/components/ui/TechBackground";
 import LordIcon from "@/components/ui/LordIcon";
 
-// Lordicon: animated diagnostic / cog wrench (substitute as needed)
-const ICON_DIAGNOSTIC = "https://cdn.lordicon.com/jeuxydnh.json"; // computer scan/diagnostic
+// Lordicon: animated computer display (confirmed: 478-computer-display-outline)
+const ICON_COMPUTER = "https://cdn.lordicon.com/qhgmphtg.json";
 
 export default function Hero() {
   return (
@@ -74,7 +74,7 @@ export default function Hero() {
               <div className="absolute inset-0 rounded-full bg-[var(--color-mcs-blue)] blur-[80px] opacity-40" />
               <div className="relative w-72 h-72 rounded-full bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center">
                 <LordIcon
-                  src={ICON_DIAGNOSTIC}
+                  src={ICON_COMPUTER}
                   trigger="loop"
                   colors="primary:#ffb547,secondary:#189dfc"
                   size={200}
