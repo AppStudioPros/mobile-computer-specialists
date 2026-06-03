@@ -10,11 +10,11 @@ const ICON_COMPUTER = "https://cdn.lordicon.com/qhgmphtg.json";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden mcs-section-dark">
+    <section className="relative overflow-hidden mcs-section-dark">
       {/* Animated tech background */}
       <TechBackground variant="dark" intensity={1} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20 lg:pt-40 lg:pb-28 w-full">
         <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 items-center">
           {/* Left: copy */}
           <motion.div
@@ -86,7 +86,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom fade to light */}
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-b from-transparent to-[var(--color-mcs-page)] pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-mcs-page)] pointer-events-none" />
     </section>
   );
 }
