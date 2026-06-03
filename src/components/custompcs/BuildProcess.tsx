@@ -7,7 +7,7 @@ const steps = [
   { n: "02", t: "Spec", b: "We design the build, send the parts list, and price it honestly." },
   { n: "03", t: "Build", b: "Careful assembly. Burn-in testing. Stress tests. All the boring-but-important stuff." },
   { n: "04", t: "Test", b: "We push the machine through its paces before you ever see it." },
-  { n: "05", t: "Deliver", b: "Setup at your home or office. We tune it for you, then we&apos;re a phone call away forever." },
+  { n: "05", t: "Deliver", b: "Setup at your home or office. We tune it for you, then we’re a phone call away forever." },
 ];
 
 export default function BuildProcess() {
@@ -37,9 +37,11 @@ export default function BuildProcess() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="p-6 rounded-2xl mcs-card-light"
+              className="group relative overflow-hidden p-6 rounded-2xl mcs-card-light shadow-sm hover:shadow-md hover:border-[var(--color-mcs-amber)]/50 transition-all"
             >
-              <div className="text-4xl font-black text-[var(--color-mcs-amber)]/35 mb-3">
+              {/* amber accent bar on hover */}
+              <span className="absolute left-0 top-0 h-full w-1 bg-[var(--color-mcs-amber)] scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" />
+              <div className="text-4xl font-black text-[var(--color-mcs-amber)] mb-3">
                 {s.n}
               </div>
               <div className="text-lg font-bold text-[var(--color-mcs-text)] mb-2">
