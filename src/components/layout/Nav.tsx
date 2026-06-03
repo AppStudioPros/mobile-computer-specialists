@@ -3,10 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Computer Repairs", href: "/computer-repairs" },
   { label: "Custom PCs", href: "/custom-pcs" },
@@ -19,6 +21,10 @@ const navLinks = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -55,10 +61,12 @@ export default function Nav() {
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors",
-                scrolled
-                  ? "text-[var(--color-mcs-text)]/75 hover:text-[var(--color-mcs-text)]"
-                  : "text-white/80 hover:text-white"
+                "text-sm font-medium transition-colors hover:text-[var(--color-mcs-amber)]",
+                isActive(link.href)
+                  ? "text-[var(--color-mcs-amber)] font-semibold"
+                  : scrolled
+                    ? "text-[var(--color-mcs-text)]/75"
+                    : "text-white/80"
               )}
             >
               {link.label}
@@ -135,7 +143,12 @@ export default function Nav() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-base font-medium text-[var(--color-mcs-text)]/80 hover:text-[var(--color-mcs-text)] transition-colors"
+                  className={cn(
+                    "text-base font-medium transition-colors hover:text-[var(--color-mcs-amber)]",
+                    isActive(link.href)
+                      ? "text-[var(--color-mcs-amber)] font-semibold"
+                      : "text-[var(--color-mcs-text)]/80"
+                  )}
                 >
                   {link.label}
                 </Link>
