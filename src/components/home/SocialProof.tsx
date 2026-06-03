@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
 
 const reviews = [
   {
@@ -26,9 +25,25 @@ const reviews = [
   },
 ];
 
+function Stars() {
+  return (
+    <div className="flex gap-0.5">
+      {[1, 2, 3, 4, 5].map((s) => (
+        <svg
+          key={s}
+          className="w-4 h-4 fill-[var(--color-mcs-amber)]"
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 2l3 7 7 .6-5.5 4.7L18 22l-6-3.5L6 22l1.5-7.7L2 9.6l7-.6z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
 export default function SocialProof() {
   return (
-    <section className="relative py-24 lg:py-32 bg-[var(--color-mcs-ink-soft)]">
+    <section className="relative py-24 lg:py-32 bg-[var(--color-mcs-page-2)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,16 +54,19 @@ export default function SocialProof() {
         >
           <div className="flex items-center justify-center gap-1 mb-6">
             {[1, 2, 3, 4, 5].map((s) => (
-              <Star
+              <svg
                 key={s}
-                className="w-7 h-7 fill-[var(--color-mcs-amber)] text-[var(--color-mcs-amber)]"
-              />
+                className="w-7 h-7 fill-[var(--color-mcs-amber)]"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2l3 7 7 .6-5.5 4.7L18 22l-6-3.5L6 22l1.5-7.7L2 9.6l7-.6z" />
+              </svg>
             ))}
           </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
+          <h2 className="text-4xl lg:text-5xl font-black text-[var(--color-mcs-text)] leading-tight mb-4">
             What our neighbors say.
           </h2>
-          <p className="text-lg text-white/60">
+          <p className="text-lg text-[var(--color-mcs-muted)]">
             154+ five-star Google reviews and counting.
           </p>
         </motion.div>
@@ -60,28 +78,25 @@ export default function SocialProof() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.6 }}
-              className="p-8 rounded-2xl bg-[var(--color-mcs-surface)] border border-[var(--color-mcs-line)] relative"
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="p-8 rounded-2xl mcs-card-light"
             >
-              <Quote className="w-8 h-8 text-[var(--color-mcs-amber)]/30 mb-4" />
-              <p className="text-base text-white/85 leading-relaxed mb-6">
+              <div className="text-5xl font-black text-[var(--color-mcs-amber)]/30 leading-none mb-3">
+                &ldquo;
+              </div>
+              <p className="text-base text-[var(--color-mcs-text)] leading-relaxed mb-6">
                 {review.body}
               </p>
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm font-bold text-white">
+                  <div className="text-sm font-bold text-[var(--color-mcs-text)]">
                     {review.name}
                   </div>
-                  <div className="text-xs text-white/40">{review.source}</div>
+                  <div className="text-xs text-[var(--color-mcs-faint)]">
+                    {review.source}
+                  </div>
                 </div>
-                <div className="flex gap-0.5">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star
-                      key={s}
-                      className="w-4 h-4 fill-[var(--color-mcs-amber)] text-[var(--color-mcs-amber)]"
-                    />
-                  ))}
-                </div>
+                <Stars />
               </div>
             </motion.div>
           ))}

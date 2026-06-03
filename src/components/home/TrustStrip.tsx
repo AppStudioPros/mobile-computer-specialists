@@ -1,44 +1,37 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Award, Clock, MapPin, Truck } from "lucide-react";
 
 const trustItems = [
-  { icon: Star, label: "5-Star Google", value: "154+ Reviews" },
-  { icon: Award, label: "A+ Rating", value: "Better Business Bureau" },
-  { icon: Clock, label: "26+ Years", value: "Serving Denver" },
-  { icon: Truck, label: "Mobile Service", value: "We Come to You" },
-  { icon: MapPin, label: "Denver, CO", value: "Local Experts" },
+  { label: "5-Star Google", value: "154+ Reviews" },
+  { label: "A+ Rating", value: "Better Business Bureau" },
+  { label: "26+ Years", value: "Serving Denver" },
+  { label: "Mobile Service", value: "We Come to You" },
+  { label: "Local Experts", value: "Denver, Colorado" },
 ];
 
 export default function TrustStrip() {
   return (
-    <section className="relative py-12 border-y border-[var(--color-mcs-line)] bg-[var(--color-mcs-ink-soft)]">
+    <section className="relative py-14 bg-[var(--color-mcs-page-2)] border-y border-[var(--color-mcs-line)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-          {trustItems.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.6 }}
-                className="flex items-center gap-3"
-              >
-                <div className="w-10 h-10 rounded-lg bg-[var(--color-mcs-amber)]/15 border border-[var(--color-mcs-amber)]/25 flex items-center justify-center shrink-0">
-                  <Icon className="w-5 h-5 text-[var(--color-mcs-amber)]" />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">
-                    {item.label}
-                  </div>
-                  <div className="text-xs text-white/50">{item.value}</div>
-                </div>
-              </motion.div>
-            );
-          })}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-y-6 gap-x-8">
+          {trustItems.map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="flex flex-col text-center md:text-left border-l-2 border-[var(--color-mcs-amber)] pl-4"
+            >
+              <div className="text-base font-bold text-[var(--color-mcs-text)] tracking-tight">
+                {item.label}
+              </div>
+              <div className="text-xs text-[var(--color-mcs-muted)] mt-0.5">
+                {item.value}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

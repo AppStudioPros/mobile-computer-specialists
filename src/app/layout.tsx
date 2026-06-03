@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
+import RobotBot from "@/components/layout/RobotBot";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -50,10 +52,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="min-h-screen bg-[var(--color-mcs-ink)] text-white antialiased">
+      <body className="min-h-screen bg-[var(--color-mcs-page)] text-[var(--color-mcs-text)] antialiased">
+        {/* Lordicon player */}
+        <Script
+          src="https://cdn.lordicon.com/lordicon.js"
+          strategy="afterInteractive"
+        />
         <Nav />
         <main>{children}</main>
         <Footer />
+        <RobotBot />
       </body>
     </html>
   );

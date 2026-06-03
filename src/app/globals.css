@@ -9,7 +9,7 @@
   --color-mcs-silver-bright: #bababa;
   --color-mcs-silver: #949494;
   --color-mcs-silver-deep: #606060;
-  --color-mcs-subtitle: #808080;
+  --color-mcs-subtitle: #6b6e75;
 
   /* Accent — Warm Amber, "we care" complement to brand blue */
   --color-mcs-amber: #ffb547;
@@ -19,12 +19,20 @@
   /* Backup accent parked (Electric Cyan) */
   --color-mcs-cyan: #00e5ff;
 
-  /* Base surfaces */
+  /* Light theme surfaces (default) */
+  --color-mcs-page: #faf9f6;        /* soft warm off-white page bg */
+  --color-mcs-page-2: #f3f1ec;      /* alternate light section */
+  --color-mcs-card: #ffffff;        /* clean white cards */
+  --color-mcs-line: #e7e2d7;        /* warm hairline border */
+  --color-mcs-text: #1c1c25;        /* near-black body text */
+  --color-mcs-muted: #6b6e75;       /* muted body text */
+  --color-mcs-faint: #9b9b9b;       /* very muted */
+
+  /* Dark accent surfaces (for hero, CTAs, special sections) */
   --color-mcs-ink: #0a0a0c;
   --color-mcs-ink-soft: #14141a;
-  --color-mcs-surface: #1c1c25;
-  --color-mcs-line: #2a2a36;
-  --color-mcs-mist: #f4f4f6;
+  --color-mcs-ink-card: #1c1c25;
+  --color-mcs-ink-line: #2a2a36;
 
   /* Typography scale */
   --font-display: "Inter", system-ui, -apple-system, sans-serif;
@@ -35,8 +43,8 @@
 }
 
 :root {
-  --background: #0a0a0c;
-  --foreground: #f4f4f6;
+  --background: #faf9f6;
+  --foreground: #1c1c25;
 }
 
 html {
@@ -51,14 +59,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Selection */
 ::selection {
   background: var(--color-mcs-amber);
   color: var(--color-mcs-ink);
 }
 
-/* Reusable utility classes */
+/* ===== Utility classes ===== */
+
 .mcs-gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--color-mcs-blue-bright) 0%,
+    var(--color-mcs-blue) 50%,
+    var(--color-mcs-silver) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.mcs-gradient-text-on-dark {
   background: linear-gradient(
     135deg,
     var(--color-mcs-blue-bright) 0%,
@@ -94,16 +114,63 @@ body {
   box-shadow: 0 0 40px -8px rgba(255, 181, 71, 0.45);
 }
 
+.mcs-card-light {
+  background: var(--color-mcs-card);
+  border: 1px solid var(--color-mcs-line);
+}
+
+.mcs-card-dark {
+  background: var(--color-mcs-ink-card);
+  border: 1px solid var(--color-mcs-ink-line);
+  color: white;
+}
+
+.mcs-section-dark {
+  background: var(--color-mcs-ink);
+  color: white;
+}
+
+/* Tech grid background (subtle on light) */
+.mcs-tech-grid-light {
+  background-image:
+    linear-gradient(rgba(28, 28, 37, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 28, 37, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Tech grid background (subtle on dark) */
+.mcs-tech-grid-dark {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Animated subtle circuit dots */
+@keyframes mcsDriftDots {
+  0%   { background-position: 0 0; }
+  100% { background-position: 80px 80px; }
+}
+.mcs-dots {
+  background-image: radial-gradient(
+    circle at center,
+    rgba(24, 157, 252, 0.18) 1.2px,
+    transparent 1.5px
+  );
+  background-size: 28px 28px;
+  animation: mcsDriftDots 16s linear infinite;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-mcs-ink);
+  background: var(--color-mcs-page);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-mcs-line);
+  background: var(--color-mcs-silver);
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {

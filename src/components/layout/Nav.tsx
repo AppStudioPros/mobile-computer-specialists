@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -29,9 +28,9 @@ export default function Nav() {
   return (
     <header
       className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-all duration-300",
+        "fixed top-0 inset-x-0 z-40 transition-all duration-300",
         scrolled
-          ? "bg-[var(--color-mcs-ink)]/85 backdrop-blur-xl border-b border-[var(--color-mcs-line)]"
+          ? "bg-[var(--color-mcs-page)]/90 backdrop-blur-xl border-b border-[var(--color-mcs-line)] shadow-sm"
           : "bg-transparent"
       )}
     >
@@ -41,7 +40,7 @@ export default function Nav() {
           <span className="text-xl lg:text-2xl font-black tracking-tight">
             <span className="mcs-gradient-text">M.cs</span>
           </span>
-          <span className="hidden md:inline text-xs text-[var(--color-mcs-subtitle)] font-medium tracking-wider uppercase">
+          <span className="hidden md:inline text-[10px] lg:text-xs text-[var(--color-mcs-muted)] font-semibold tracking-widest uppercase">
             Mobile Computer Specialists
           </span>
         </Link>
@@ -52,7 +51,7 @@ export default function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors"
+              className="text-sm font-medium text-[var(--color-mcs-text)]/75 hover:text-[var(--color-mcs-text)] transition-colors"
             >
               {link.label}
             </Link>
@@ -63,14 +62,13 @@ export default function Nav() {
         <div className="hidden lg:flex items-center gap-4">
           <a
             href="tel:7202760797"
-            className="flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-[var(--color-mcs-amber)] transition-colors"
+            className="text-sm font-semibold text-[var(--color-mcs-text)] hover:text-[var(--color-mcs-amber-deep)] transition-colors"
           >
-            <Phone className="w-4 h-4" />
             720-276-0797
           </a>
           <Link
             href="/contact"
-            className="px-5 py-2.5 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] text-sm font-bold hover:scale-105 transition-transform"
+            className="px-5 py-2.5 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] text-sm font-bold hover:scale-105 transition-transform shadow-sm"
           >
             Free Diagnostic
           </Link>
@@ -79,51 +77,72 @@ export default function Nav() {
         {/* Mobile menu button */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden text-white p-2"
+          className="lg:hidden text-[var(--color-mcs-text)] p-2"
           aria-label="Toggle menu"
         >
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <div className="w-6 h-6 flex flex-col justify-center gap-1.5">
+            <span
+              className={cn(
+                "block h-0.5 w-6 bg-current transition-transform",
+                open && "rotate-45 translate-y-2"
+              )}
+            />
+            <span
+              className={cn(
+                "block h-0.5 w-6 bg-current transition-opacity",
+                open && "opacity-0"
+              )}
+            />
+            <span
+              className={cn(
+                "block h-0.5 w-6 bg-current transition-transform",
+                open && "-rotate-45 -translate-y-2"
+              )}
+            />
+          </div>
         </button>
       </div>
 
       {/* Mobile menu */}
-      {open && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          className="lg:hidden bg-[var(--color-mcs-ink)] border-t border-[var(--color-mcs-line)]"
-        >
-          <nav className="flex flex-col px-6 py-6 gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="text-base font-medium text-white/80 hover:text-white transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="flex flex-col gap-3 pt-4 border-t border-[var(--color-mcs-line)]">
-              <a
-                href="tel:7202760797"
-                className="flex items-center gap-2 text-base font-semibold text-white"
-              >
-                <Phone className="w-5 h-5" />
-                720-276-0797
-              </a>
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="px-5 py-3 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] text-base font-bold text-center"
-              >
-                Claim Free Diagnostic
-              </Link>
-            </div>
-          </nav>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden bg-[var(--color-mcs-page)] border-t border-[var(--color-mcs-line)] overflow-hidden"
+          >
+            <nav className="flex flex-col px-6 py-6 gap-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="text-base font-medium text-[var(--color-mcs-text)]/80 hover:text-[var(--color-mcs-text)] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="flex flex-col gap-3 pt-4 border-t border-[var(--color-mcs-line)]">
+                <a
+                  href="tel:7202760797"
+                  className="text-base font-semibold text-[var(--color-mcs-text)]"
+                >
+                  720-276-0797
+                </a>
+                <Link
+                  href="/contact"
+                  onClick={() => setOpen(false)}
+                  className="px-5 py-3 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] text-base font-bold text-center"
+                >
+                  Claim Free Diagnostic
+                </Link>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

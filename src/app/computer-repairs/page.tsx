@@ -1,14 +1,30 @@
-export default function Page() {
+import type { Metadata } from "next";
+import PageHero from "@/components/ui/PageHero";
+import PageCta from "@/components/ui/PageCta";
+import RepairsList from "@/components/repairs/RepairsList";
+import FreeDiagnosticBanner from "@/components/repairs/FreeDiagnosticBanner";
+
+export const metadata: Metadata = {
+  title: "Computer Repairs Denver | PC & Mac Repair | Mobile Computer Specialists",
+  description:
+    "Fast, reliable computer repair in Denver. PC and Mac, virus removal, data recovery, IT support, computer cleanup. Free diagnostics. We come to you.",
+};
+
+export default function ComputerRepairsPage() {
   return (
-    <section className="min-h-screen pt-32 pb-24 px-6">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-black mcs-gradient-text mb-6">
-          Coming Soon
-        </h1>
-        <p className="text-lg text-white/60">
-          This page is being built. The Home page is up first \u2014 the rest come next.
-        </p>
-      </div>
-    </section>
+    <>
+      <PageHero
+        eyebrow="Computer Repairs"
+        title="Fast, reliable repairs"
+        highlight="for PC and Mac"
+        subtitle="One team. Eight services. Honest pricing. Free diagnostics on every job."
+      />
+      <FreeDiagnosticBanner />
+      <RepairsList />
+      <PageCta
+        title="Stuck with a busted computer?"
+        subtitle="Book a free diagnostic and we&apos;ll come take a look. No trip fee. No obligation."
+      />
+    </>
   );
 }

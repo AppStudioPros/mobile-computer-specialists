@@ -1,14 +1,31 @@
-export default function Page() {
+import type { Metadata } from "next";
+import PageHero from "@/components/ui/PageHero";
+import PageCta from "@/components/ui/PageCta";
+import AboutStory from "@/components/about/AboutStory";
+import FounderSpotlight from "@/components/about/FounderSpotlight";
+import AboutTrust from "@/components/about/AboutTrust";
+import AboutReviews from "@/components/about/AboutReviews";
+
+export const metadata: Metadata = {
+  title: "About Mobile Computer Specialists",
+  description:
+    "Denver's trusted IT service since 2000. Founded and led by Corey Strange. Home of the Free PC Diagnostics. We come to you, no trip fee, no obligation.",
+};
+
+export default function AboutPage() {
   return (
-    <section className="min-h-screen pt-32 pb-24 px-6">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-black mcs-gradient-text mb-6">
-          Coming Soon
-        </h1>
-        <p className="text-lg text-white/60">
-          This page is being built. The Home page is up first \u2014 the rest come next.
-        </p>
-      </div>
-    </section>
+    <>
+      <PageHero
+        eyebrow="About"
+        title="Home of the"
+        highlight="Free Diagnostics"
+        subtitle="26+ years serving Denver. One mission: honest tech work for real people."
+      />
+      <AboutStory />
+      <FounderSpotlight />
+      <AboutTrust />
+      <AboutReviews />
+      <PageCta />
+    </>
   );
 }
