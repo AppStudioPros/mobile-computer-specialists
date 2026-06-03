@@ -54,7 +54,12 @@ export default function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-[var(--color-mcs-text)]/75 hover:text-[var(--color-mcs-text)] transition-colors"
+              className={cn(
+                "text-sm font-medium transition-colors",
+                scrolled
+                  ? "text-[var(--color-mcs-text)]/75 hover:text-[var(--color-mcs-text)]"
+                  : "text-white/80 hover:text-white"
+              )}
             >
               {link.label}
             </Link>
@@ -65,7 +70,12 @@ export default function Nav() {
         <div className="hidden lg:flex items-center gap-4">
           <a
             href="tel:7202760797"
-            className="text-sm font-semibold text-[var(--color-mcs-text)] hover:text-[var(--color-mcs-amber-deep)] transition-colors"
+            className={cn(
+              "text-sm font-semibold transition-colors",
+              scrolled
+                ? "text-[var(--color-mcs-text)] hover:text-[var(--color-mcs-amber-deep)]"
+                : "text-white hover:text-[var(--color-mcs-amber)]"
+            )}
           >
             720-276-0797
           </a>
@@ -80,7 +90,10 @@ export default function Nav() {
         {/* Mobile menu button */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden text-[var(--color-mcs-text)] p-2"
+          className={cn(
+            "lg:hidden p-2 transition-colors",
+            scrolled || open ? "text-[var(--color-mcs-text)]" : "text-white"
+          )}
           aria-label="Toggle menu"
         >
           <div className="w-6 h-6 flex flex-col justify-center gap-1.5">
