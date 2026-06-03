@@ -55,7 +55,7 @@ export default function WeComeToYou() {
           </p>
         </motion.div>
 
-        {/* Dark cards on light background — keeping the dark card vibe Kelsi liked */}
+        {/* Light cards on light background — full-strength amber numbers, dark text, amber accent bar on hover */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {steps.map((step, i) => (
             <motion.div
@@ -64,15 +64,17 @@ export default function WeComeToYou() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="group relative p-7 rounded-2xl mcs-card-dark hover:border-[var(--color-mcs-amber)]/50 transition-colors"
+              className="group relative p-7 rounded-2xl mcs-card-light shadow-sm hover:shadow-md hover:border-[var(--color-mcs-amber)]/50 transition-all overflow-hidden"
             >
-              <div className="text-5xl font-black text-[var(--color-mcs-amber)]/25 group-hover:text-[var(--color-mcs-amber)] transition-colors mb-4 leading-none">
+              {/* amber accent bar on hover */}
+              <span className="absolute left-0 top-0 h-full w-1 bg-[var(--color-mcs-amber)] scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" />
+              <div className="text-5xl font-black text-[var(--color-mcs-amber)] mb-4 leading-none">
                 {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">
+              <h3 className="text-lg font-bold text-[var(--color-mcs-text)] mb-2">
                 {step.title}
               </h3>
-              <p className="text-sm text-white/60 leading-relaxed">
+              <p className="text-sm text-[var(--color-mcs-muted)] leading-relaxed">
                 {step.body}
               </p>
             </motion.div>
