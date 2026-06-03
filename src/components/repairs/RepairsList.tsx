@@ -31,10 +31,12 @@ export default function RepairsList() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="scroll-mt-24 mcs-card-light p-6 lg:p-8 rounded-2xl grid lg:grid-cols-[1fr_2fr] gap-6 lg:gap-10 hover:border-[var(--color-mcs-amber)]/40 transition-colors"
+              className="group relative overflow-hidden scroll-mt-24 mcs-card-light p-6 lg:p-8 rounded-2xl grid lg:grid-cols-[1fr_2fr] gap-6 lg:gap-10 shadow-sm hover:shadow-md hover:border-[var(--color-mcs-amber)]/50 transition-all"
             >
+              {/* amber accent bar on hover */}
+              <span className="absolute left-0 top-0 h-full w-1 bg-[var(--color-mcs-amber)] scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" />
               <div>
-                <div className="text-3xl font-black text-[var(--color-mcs-amber)]/40 mb-2">
+                <div className="text-3xl font-black text-[var(--color-mcs-amber)] mb-2">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <h3 className="text-2xl font-bold text-[var(--color-mcs-text)] leading-tight">
