@@ -67,7 +67,7 @@ export default function SocialProof() {
             What our neighbors say.
           </h2>
           <p className="text-lg text-[var(--color-mcs-muted)]">
-            154+ five-star Google reviews and counting.
+            168 five-star Google reviews and counting.
           </p>
         </motion.div>
 
