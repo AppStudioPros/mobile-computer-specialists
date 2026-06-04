@@ -45,6 +45,15 @@ export default function FinalCta() {
               Call 720-276-0797
             </a>
           </div>
+          <p className="mt-6 text-sm text-white/55">
+            Not sure if we cover your area?{" "}
+            <Link
+              href="/service-area"
+              className="font-semibold text-white/80 underline underline-offset-4 decoration-white/30 hover:text-[var(--color-mcs-amber)] hover:decoration-[var(--color-mcs-amber)] transition-colors"
+            >
+              See where we go
+            </Link>
+          </p>
         </motion.div>
       </div>
     </section>
