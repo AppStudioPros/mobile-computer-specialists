@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import TechBackground from "@/components/ui/TechBackground";
-import BbbBadge from "@/components/ui/BbbBadge";
+
+const BBB_PROFILE =
+  "https://www.bbb.org/us/co/arvada/profile/computer-repair/mobile-computer-specialists-1296-90100509";
 
 export default function Hero() {
   return (
@@ -60,7 +63,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right: BBB A+ accreditation badge */}
+          {/* Right: bare BBB A+ badge, links to profile, hover-zoom */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -74,9 +77,22 @@ export default function Hero() {
                 animate={{ opacity: [0.25, 0.5, 0.25], scale: [0.9, 1.08, 0.9] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
               />
-              <div className="relative">
-                <BbbBadge />
-              </div>
+              <a
+                href={BBB_PROFILE}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="BBB Accredited Business — A+ Rating — View profile"
+                title="BBB Accredited · A+ Rating since 9/15/2021"
+                className="relative block transition-transform duration-300 hover:scale-110"
+              >
+                <Image
+                  src="/brand/bbb-accredited.png"
+                  alt="BBB Accredited Business A+ Rating"
+                  width={316}
+                  height={131}
+                  className="w-72 h-auto drop-shadow-2xl"
+                />
+              </a>
             </div>
           </motion.div>
         </div>
