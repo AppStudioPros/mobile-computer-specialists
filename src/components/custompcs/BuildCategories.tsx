@@ -1,8 +1,11 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
+import { Plus } from "lucide-react";
+import BuildModal, { type BuildCategory } from "./BuildModal";
 
-const categories = [
+const categories: BuildCategory[] = [
   {
     id: "gaming",
     title: "Gaming PC Builds",
@@ -10,6 +13,23 @@ const categories = [
     body:
       "High-performance machines built for immersive play. Powerful GPUs, fast processors, smooth frame rates, and the kind of headroom that future-proofs your build.",
     spec: "RTX 4070+ • i7/Ryzen 7 • 32GB+ DDR5 • NVMe storage",
+    detail: {
+      intro: [
+        "We build custom gaming machines for peak performance and the kind of immersive play that pulls you in. Every rig is built to your specifications, with high-end GPUs, fast processors, and efficient cooling so gameplay stays smooth and the graphics stay stunning, even when the action gets heavy.",
+        "There is no one-size-fits-all gaming PC. A competitive shooter player and a single-player 4K explorer want different things, so we start with how you actually play and build the machine around it. The result is a rig with real headroom that does not feel dated a year from now.",
+      ],
+      includesTitle: "What goes into a gaming build",
+      includes: [
+        "High-end GPU matched to your target resolution and frame rate",
+        "Fast current-generation CPU",
+        "32GB or more of fast DDR5 memory",
+        "NVMe storage for quick load times",
+        "Cooling tuned for sustained performance",
+        "Clean cable management and room to upgrade",
+      ],
+      process:
+        "We start with a free consultation to understand your games, your monitor, and your budget. Then we recommend the right components, build it, test it hard, and deliver a machine that performs. By-the-job pricing, built to your spec.",
+    },
   },
   {
     id: "editing",
@@ -18,6 +38,23 @@ const categories = [
     body:
       "Optimized for video editing, graphic design, 3D, and creative workflows. Heavy processing power, generous RAM, fast scratch disks. Built for projects that punish weak hardware.",
     spec: "RTX 4080+ or Apple Silicon • 64GB+ RAM • Multi-NVMe",
+    detail: {
+      intro: [
+        "Creative work punishes weak hardware. Our editing PC builds focus on the processing power and memory that video editing, graphic design, 3D, and content creation actually demand, so timelines scrub smoothly and renders finish faster.",
+        "We tailor each build to your software and your workflow. Heavy multi-core processing, generous RAM for big projects, and fast scratch disks so you spend your time creating instead of waiting on the machine to catch up.",
+      ],
+      includesTitle: "What goes into an editing build",
+      includes: [
+        "Multi-core CPU built for rendering and export",
+        "GPU acceleration for your editing software",
+        "64GB or more RAM for large projects",
+        "Multiple fast NVMe drives for scratch and storage",
+        "Color-accurate output ready",
+        "Quiet, efficient cooling for long sessions",
+      ],
+      process:
+        "Tell us what you create and what software you run. We recommend the components that match your workflow, build it, and test it against real creative work. The goal is a machine that keeps up with you instead of slowing you down.",
+    },
   },
   {
     id: "workstations",
@@ -26,10 +63,44 @@ const categories = [
     body:
       "Professional builds for engineering, CAD, 3D modeling, scientific computing, and demanding business workloads. Reliability and longevity are the priorities.",
     spec: "Xeon/Threadripper • ECC RAM • Quadro/RTX A-series",
+    detail: {
+      intro: [
+        "Our custom PC workstations are built to meet the demands of professionals in fields like video editing, 3D modeling, engineering, CAD, and software development. Each workstation is tailored to your specific needs, with high-performance CPUs, ample RAM, and fast SSDs for seamless multitasking and efficient workflows.",
+        "Where a gaming rig chases frame rates, a workstation chases reliability and longevity. With advanced cooling and components chosen for stability, these machines are built to run hard, day after day, and tackle complex projects with ease.",
+      ],
+      includesTitle: "What goes into a workstation",
+      includes: [
+        "Professional-grade CPU (Xeon or Threadripper class)",
+        "ECC memory for stability on critical work",
+        "Workstation GPU (Quadro / RTX A-series)",
+        "Fast, redundant SSD storage",
+        "Advanced cooling for sustained load",
+        "Built for reliability and long service life",
+      ],
+      process:
+        "We start with the work the machine has to do, whether that is CAD, 3D, scientific computing, or a demanding business workload. Then we spec it for stability and speed, build it, and stress-test it before it ever reaches your desk.",
+    },
   },
 ];
 
 export default function BuildCategories() {
+  const [active, setActive] = useState<BuildCategory | null>(null);
+
+  const openById = useCallback((id: string) => {
+    const match = categories.find((c) => c.id === id);
+    if (match) setActive(match);
+  }, []);
+
+  // Auto-open the matching modal when arriving via a redirect anchor
+  // (e.g. /custom-pcs#gaming from the old /gaming-pc-builds URL).
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      const t = setTimeout(() => openById(hash), 400);
+      return () => clearTimeout(t);
+    }
+  }, [openById]);
+
   return (
     <section id="builds" className="py-20 lg:py-28 bg-[var(--color-mcs-page)]">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -50,14 +121,16 @@ export default function BuildCategories() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {categories.map((c, i) => (
-            <motion.div
+            <motion.button
               key={c.id}
               id={c.id}
+              type="button"
+              onClick={() => setActive(c)}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="scroll-mt-24 p-8 rounded-2xl mcs-card-dark hover:border-[var(--color-mcs-amber)]/50 hover:-translate-y-1 transition-all"
+              className="group scroll-mt-24 w-full text-left p-8 rounded-2xl mcs-card-dark hover:border-[var(--color-mcs-amber)]/50 hover:-translate-y-1 transition-all cursor-pointer"
             >
               <div className="text-xs font-bold uppercase tracking-widest text-[var(--color-mcs-amber)] mb-3">
                 {c.short}
@@ -69,10 +142,16 @@ export default function BuildCategories() {
               <div className="text-xs font-mono text-white/50 border-t border-white/10 pt-4">
                 {c.spec}
               </div>
-            </motion.div>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--color-mcs-amber)] group-hover:translate-x-0.5 transition-transform">
+                <Plus className="w-4 h-4" strokeWidth={3} />
+                See full details
+              </span>
+            </motion.button>
           ))}
         </div>
       </div>
+
+      <BuildModal category={active} onClose={() => setActive(null)} />
     </section>
   );
 }
