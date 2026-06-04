@@ -105,7 +105,7 @@ export default function WdpPitch({
         );
       })}
 
-      {/* Link out to the full Web Design Pros 365 site */}
+      {/* Branded text link out to the Web Design Pros 365 contact page */}
       <section className="py-16 bg-[var(--color-mcs-page)]">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <motion.a
@@ -116,7 +116,7 @@ export default function WdpPitch({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mcs-shine group inline-flex items-center gap-2 px-8 py-4 rounded-full mcs-gradient-blue text-white font-bold text-base hover:scale-[1.03] transition-transform"
+            className="group inline-flex items-center gap-2 text-lg font-bold text-[#1F4FD0] underline underline-offset-4 decoration-2 decoration-[#1F4FD0]/40 hover:text-[#8B2F9E] hover:decoration-[#8B2F9E] transition-colors"
           >
             {ctaLabel}
             <span className="group-hover:translate-x-1 transition-transform">

@@ -84,8 +84,8 @@ export default function WebsitesPage() {
       <WdpPitch
         intro="Web Design Pros 365 is us. It is the name our website and marketing work runs under, built by the same people you already trust for your computers. Modern stack, fast sites, real designers, real developers."
         services={services}
-        ctaLabel="Visit Web Design Pros 365"
-        ctaHref="https://webdesignpros365.com"
+        ctaLabel="Get in touch with Web Design Pros 365"
+        ctaHref="https://www.webdesignpros365.com/contact"
       />
       <PageCta
         title="Ready to build your website?"
