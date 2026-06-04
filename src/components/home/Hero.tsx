@@ -63,21 +63,27 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right: animated diagnostic icon (Lordicon - one of our few icons) */}
+          {/* Right: oversized ghosted-blue diagnostic icon, baked into the bg */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
             className="hidden lg:flex justify-center"
           >
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-[var(--color-mcs-blue)] blur-[80px] opacity-40" />
-              <div className="relative w-72 h-72 rounded-full bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center">
+            <div className="relative flex items-center justify-center">
+              {/* Soft glow that drifts/breathes slowly behind the icon */}
+              <motion.div
+                className="absolute inset-0 rounded-full bg-[var(--color-mcs-blue)] blur-[100px]"
+                animate={{ opacity: [0.25, 0.5, 0.25], scale: [0.9, 1.08, 0.9] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              />
+              {/* Oversized icon, all blue, faded so it reads as part of the background */}
+              <div className="relative opacity-25">
                 <LordIcon
                   src={ICON_COMPUTER}
                   trigger="loop"
-                  colors="primary:#ffb547,secondary:#189dfc"
-                  size={200}
+                  colors="primary:#189dfc,secondary:#189dfc"
+                  size={420}
                 />
               </div>
             </div>
