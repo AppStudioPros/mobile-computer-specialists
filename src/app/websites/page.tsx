@@ -8,31 +8,61 @@ const services = [
     id: "website-design",
     title: "Website Design",
     body:
-      "Modern, mobile-first website design that looks beautiful and turns visitors into customers. Choosing Web Design Pros 365 for your website design means a team driven by creativity, quality, and results. Start with us at Mobile Computer Specialists and we will get you connected.",
+      "Modern, mobile-first website design that looks beautiful and turns visitors into customers. Our design work is driven by creativity, quality, and results, built around your brand and the people you want to reach.",
+    points: [
+      "Mobile-first, responsive layouts",
+      "Conversion-focused structure",
+      "Built around your brand",
+      "Clean, modern visual design",
+    ],
   },
   {
     id: "website-development",
     title: "Website Development",
     body:
-      "Website development is the art and science of building and maintaining dynamic, functional websites. Web Design Pros 365 builds on a modern stack with fast load times and clean code, the same approach behind the best sites on the web. Tell Mobile Computer Specialists what you need and we will hand you to the right developers.",
+      "Website development is the art and science of building and maintaining dynamic, functional websites. We build on a modern stack with fast load times and clean code, the same approach behind the best sites on the web.",
+    points: [
+      "Next.js and React",
+      "Fast load times and clean code",
+      "Scalable and easy to maintain",
+      "Integrations and custom features",
+    ],
   },
   {
     id: "domain-hosting",
     title: "Domain & Hosting",
     body:
-      "Every great website begins with the perfect name, and a powerful online presence starts there. Web Design Pros 365 handles domain registration, transfers, and reliable hosting so you set it up once and forget about it. Mobile Computer Specialists gets you pointed in the right direction.",
+      "Every great website begins with the perfect name, and a powerful online presence starts there. We handle domain registration, transfers, and reliable hosting so you set it up once and forget about it.",
+    points: [
+      "Domain registration and transfers",
+      "Reliable, fast hosting",
+      "SSL included",
+      "Set it up once and forget it",
+    ],
   },
   {
     id: "website-security",
     title: "Website Security",
     body:
-      "Web Design Pros 365 delivers website security services designed to safeguard your online presence with precision and care. SSL, malware protection, regular audits, and security hardening keep your site safe and your customers protected. Come through Mobile Computer Specialists and we will connect you.",
+      "We deliver website security services designed to safeguard your online presence with precision and care. SSL, malware protection, regular audits, and security hardening keep your site safe and your customers protected.",
+    points: [
+      "SSL and encryption",
+      "Malware protection and removal",
+      "Regular security audits",
+      "Hardening and monitoring",
+    ],
   },
   {
     id: "branding",
     title: "Brand Identity",
     body:
-      "Strengthen your brand awareness with Mobile Computer Specialists and sister company Web Design Pros 365. Logos, color systems, typography, and brand guidelines that make your business unmistakable and consistent everywhere people find you.",
+      "Strong branding makes your business unmistakable. Logos, color systems, typography, and brand guidelines that stay consistent everywhere people find you, from your website to your storefront.",
+    points: [
+      "Logo and mark design",
+      "Color systems and typography",
+      "Brand guidelines",
+      "Consistent across every touchpoint",
+    ],
   },
 ];
 
@@ -47,20 +77,20 @@ export default function WebsitesPage() {
     <>
       <PageHero
         eyebrow="Websites"
-        title="Meet our sister company,"
+        title="We build websites too, as"
         highlight="Web Design Pros 365"
-        subtitle="When you need a website, you want a specialist. We partner with Web Design Pros 365 so you get the best of both worlds."
+        subtitle="Same team, same people. Our website, marketing, and IT services run under Web Design Pros 365. When you need a site, you are still working with us."
       />
       <WdpPitch
-        intro="MCS knows our lane: hardware, repair, custom builds. For websites, we partner with the experts at Web Design Pros 365. Modern stack, fast sites, real designers, real developers."
+        intro="Web Design Pros 365 is us. It is the name our website and marketing work runs under, built by the same people you already trust for your computers. Modern stack, fast sites, real designers, real developers."
         services={services}
-        ctaLabel="Explore Web Design Pros 365"
+        ctaLabel="Visit Web Design Pros 365"
         ctaHref="https://webdesignpros365.com"
       />
       <PageCta
-        title="Want us to make the intro?"
-        subtitle="If you&apos;d rather start with MCS, we&apos;ll get you connected and walk you through it together."
-        primaryLabel="Get Started With MCS"
+        title="Ready to build your website?"
+        subtitle="Start here and we will take it from the first call all the way through launch."
+        primaryLabel="Get Started"
       />
     </>
   );
