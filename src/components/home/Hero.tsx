@@ -81,7 +81,7 @@ export default function Hero() {
               <div className="relative opacity-25">
                 <LordIcon
                   src={ICON_COMPUTER}
-                  trigger="loop"
+                  trigger="in"
                   colors="primary:#189dfc,secondary:#189dfc"
                   size={420}
                 />
