@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-type Service = { title: string; body: string; badge?: string };
+type Service = { id?: string; title: string; body: string; badge?: string };
 
 export default function WdpPitch({
   intro,
@@ -54,12 +54,14 @@ export default function WdpPitch({
           {services.map((s, i) => (
             <motion.div
               key={s.title}
+              id={s.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="p-7 rounded-2xl mcs-card-light hover:border-[var(--color-mcs-amber)]/50 hover:shadow-md transition-all"
+              className="group relative overflow-hidden scroll-mt-24 p-7 rounded-2xl mcs-card-light hover:border-[var(--color-mcs-amber)]/50 hover:shadow-md transition-all"
             >
+              <span className="absolute left-0 top-0 h-full w-1 bg-[var(--color-mcs-amber)] scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" />
               {s.badge && (
                 <span className="inline-block px-3 py-1 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] text-[10px] font-bold uppercase tracking-wider mb-3">
                   {s.badge}

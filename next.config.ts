@@ -23,12 +23,12 @@ const redirectMap: { from: string; to: string }[] = [
   { from: "/gaming-pc-builds", to: "/custom-pcs#gaming" },
   { from: "/workstations", to: "/custom-pcs#workstations" },
 
-  // --- Websites consolidation ---
-  { from: "/branding", to: "/websites" },
-  { from: "/domain-hosting", to: "/websites" },
-  { from: "/website-design", to: "/websites" },
-  { from: "/website-development", to: "/websites" },
-  { from: "/website-security", to: "/websites" },
+  // --- Websites consolidation (land on matching anchored section) ---
+  { from: "/branding", to: "/websites#branding" },
+  { from: "/domain-hosting", to: "/websites#domain-hosting" },
+  { from: "/website-design", to: "/websites#website-design" },
+  { from: "/website-development", to: "/websites#website-development" },
+  { from: "/website-security", to: "/websites#website-security" },
 
   // --- Marketing consolidation (/marketing keeps its URL) ---
   { from: "/apparel", to: "/marketing" },

@@ -5,24 +5,34 @@ import WdpPitch from "@/components/branded/WdpPitch";
 
 const services = [
   {
+    id: "website-design",
     title: "Website Design",
-    body: "Modern, mobile-first design that looks beautiful and converts visitors into customers.",
+    body:
+      "Modern, mobile-first website design that looks beautiful and turns visitors into customers. Choosing Web Design Pros 365 for your website design means a team driven by creativity, quality, and results. Start with us at Mobile Computer Specialists and we will get you connected.",
   },
   {
+    id: "website-development",
     title: "Website Development",
-    body: "Next.js, React, fast servers. Built on the same modern stack used by Vercel and the rest of the web's best.",
+    body:
+      "Website development is the art and science of building and maintaining dynamic, functional websites. Web Design Pros 365 builds on a modern stack with fast load times and clean code, the same approach behind the best sites on the web. Tell Mobile Computer Specialists what you need and we will hand you to the right developers.",
   },
   {
+    id: "domain-hosting",
     title: "Domain & Hosting",
-    body: "Domain registration, transfers, and rock-solid hosting. Set it up once, forget about it.",
+    body:
+      "Every great website begins with the perfect name, and a powerful online presence starts there. Web Design Pros 365 handles domain registration, transfers, and reliable hosting so you set it up once and forget about it. Mobile Computer Specialists gets you pointed in the right direction.",
   },
   {
+    id: "website-security",
     title: "Website Security",
-    body: "SSL, malware protection, regular audits, and security hardening so your site stays safe.",
+    body:
+      "Web Design Pros 365 delivers website security services designed to safeguard your online presence with precision and care. SSL, malware protection, regular audits, and security hardening keep your site safe and your customers protected. Come through Mobile Computer Specialists and we will connect you.",
   },
   {
+    id: "branding",
     title: "Brand Identity",
-    body: "Logos, color systems, typography, and brand guidelines that make your business unmistakable.",
+    body:
+      "Strengthen your brand awareness with Mobile Computer Specialists and sister company Web Design Pros 365. Logos, color systems, typography, and brand guidelines that make your business unmistakable and consistent everywhere people find you.",
   },
 ];
 
