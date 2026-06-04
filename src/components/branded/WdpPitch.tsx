@@ -99,32 +99,26 @@ export default function WdpPitch({
                     ))}
                   </ul>
                 )}
+
+                {/* Per-section branded text link (brand blue, purple hover) */}
+                <a
+                  href={ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-7 inline-flex items-center gap-2 text-base font-bold text-[#1F4FD0] underline underline-offset-4 decoration-2 decoration-[#1F4FD0]/40 hover:text-[#8B2F9E] hover:decoration-[#8B2F9E] transition-colors"
+                >
+                  {ctaLabel}
+                  <span className="group-hover:translate-x-1 transition-transform">
+                    &#8599;
+                  </span>
+                </a>
               </motion.div>
             </div>
           </section>
         );
       })}
 
-      {/* Branded text link out to the Web Design Pros 365 contact page */}
-      <section className="py-16 bg-[var(--color-mcs-page)]">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
-          <motion.a
-            href={ctaHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="group inline-flex items-center gap-2 text-lg font-bold text-[#1F4FD0] underline underline-offset-4 decoration-2 decoration-[#1F4FD0]/40 hover:text-[#8B2F9E] hover:decoration-[#8B2F9E] transition-colors"
-          >
-            {ctaLabel}
-            <span className="group-hover:translate-x-1 transition-transform">
-              &#8599;
-            </span>
-          </motion.a>
-        </div>
-      </section>
+
     </>
   );
 }
