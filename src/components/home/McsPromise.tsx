@@ -5,8 +5,29 @@ import { motion } from "framer-motion";
 export default function McsPromise() {
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden bg-[var(--color-mcs-page)]">
-      <div className="absolute inset-0 opacity-50 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[var(--color-mcs-blue)] blur-[200px] opacity-10" />
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Slow-drifting blue glow */}
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-[600px] h-[600px] rounded-full bg-[var(--color-mcs-blue)] blur-[200px]"
+          animate={{
+            x: ["-50%", "-38%", "-58%", "-50%"],
+            y: ["-50%", "-60%", "-42%", "-50%"],
+            opacity: [0.1, 0.16, 0.08, 0.1],
+            scale: [1, 1.15, 0.95, 1],
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        />
+        {/* Offbeat amber glow for warmth */}
+        <motion.div
+          className="absolute top-1/3 right-0 w-[420px] h-[420px] rounded-full bg-[var(--color-mcs-amber)] blur-[180px]"
+          animate={{
+            x: [0, -40, 30, 0],
+            y: [0, 30, -20, 0],
+            opacity: [0.06, 0.12, 0.05, 0.06],
+            scale: [1, 1.1, 0.96, 1],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        />
       </div>
 
       <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
