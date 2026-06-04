@@ -114,6 +114,39 @@ body {
   box-shadow: 0 0 40px -8px rgba(255, 181, 71, 0.45);
 }
 
+/* One-time shine sweep on hover (diagonal light streak, plays once) */
+.mcs-shine {
+  position: relative;
+  overflow: hidden;
+}
+.mcs-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 75%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+}
+.mcs-shine:hover::after {
+  animation: mcs-shine-sweep 0.75s ease-out;
+}
+@keyframes mcs-shine-sweep {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
 .mcs-card-light {
   background: var(--color-mcs-card);
   border: 1px solid var(--color-mcs-line);
