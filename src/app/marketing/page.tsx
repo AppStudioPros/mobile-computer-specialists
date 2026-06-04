@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import PageCta from "@/components/ui/PageCta";
 import WdpPitch from "@/components/branded/WdpPitch";
-import LegacyMarketingList from "@/components/branded/LegacyMarketingList";
 import MarketingSections from "@/components/branded/MarketingSections";
 
 const flagshipServices = [
@@ -50,7 +49,6 @@ export default function MarketingPage() {
         ctaLabel="Get in touch with Web Design Pros 365"
         ctaHref="https://www.webdesignpros365.com/contact"
       />
-      <LegacyMarketingList />
       <MarketingSections />
       <PageCta
         title="Ready to grow?"

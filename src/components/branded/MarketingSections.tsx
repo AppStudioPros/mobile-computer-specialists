@@ -7,33 +7,27 @@ const WDP_CONTACT = "https://www.webdesignpros365.com/contact";
 const sections = [
   {
     id: "seo",
-    eyebrow: "SEO",
-    title: "Search engine optimization that gets you found.",
-    body: "We get your business ranking where your customers are searching. On-page SEO, technical performance, local search, and Core Web Vitals tuning, built to put you at the top of Google and keep you there. Modern SEO pairs with answer engine and AI visibility work so you show up everywhere people look now.",
-  },
-  {
-    id: "social-media-marketing",
-    eyebrow: "Social Media Marketing",
-    title: "Show up where your audience already spends time.",
-    body: "Social media marketing that builds your brand and keeps you in front of the people who matter. Content, posting, community, and paid social, managed so your business stays active and visible without you having to live on every platform.",
+    eyebrow: "SEO & AI Visibility",
+    title: "Get found, by people and by AI.",
+    body: "We get your business ranking where your customers are searching. On-page SEO, technical performance, local search, and Core Web Vitals tuning to put you at the top of Google. Modern visibility goes further than that now, so we also work to get you cited in AI Overviews and by ChatGPT, Claude, Gemini, and Perplexity, the places people increasingly search first.",
   },
   {
     id: "digital-advertising",
-    eyebrow: "Digital Advertising",
-    title: "Ads that put your money where the results are.",
-    body: "Data-driven digital advertising across search and social. Campaign setup, targeting, conversion tracking, A/B testing, and ROI reporting, so every dollar is working and you can see exactly what it brings back.",
+    eyebrow: "Advertising & Campaigns",
+    title: "Put your budget where the results are.",
+    body: "Data-driven digital advertising and email campaigns that bring measurable returns. Search and social ads, targeting, email marketing, conversion tracking, A/B testing, and clear ROI reporting, so every dollar is working and you can see exactly what it brings back.",
+  },
+  {
+    id: "social-media-marketing",
+    eyebrow: "Social & Content",
+    title: "Stay in front of your audience.",
+    body: "Social media marketing, content, and video that keep your brand active and visible. Posting, community, content creation, and video, managed so your business shows up consistently where your audience already spends their time, without you having to live on every platform.",
   },
   {
     id: "graphic-design",
-    eyebrow: "Graphic Design & Logos",
-    title: "Design that makes your business look the part.",
-    body: "Logos, graphics, and visual identity that make you unmistakable. From a new logo to full brand visuals, we create design that stays consistent across your website, your ads, and everywhere else people find you.",
-  },
-  {
-    id: "apparel",
-    eyebrow: "Printing & Apparel",
-    title: "Put your brand on something you can hand someone.",
-    body: "Printing and branded apparel to carry your identity into the real world. Shirts, signage, and printed materials done in the same look and feel as the rest of your brand, so everything matches from screen to street.",
+    eyebrow: "Brand & Design",
+    title: "Look the part, everywhere people find you.",
+    body: "Logos, graphics, printed materials, branded apparel, and reputation management that make your business unmistakable. From a new logo to signage, shirts, and the reviews people see first, we keep your brand sharp and consistent from screen to street.",
   },
 ];
 

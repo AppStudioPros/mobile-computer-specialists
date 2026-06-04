@@ -30,12 +30,12 @@ const redirectMap: { from: string; to: string }[] = [
   { from: "/website-development", to: "/websites#website-development" },
   { from: "/website-security", to: "/websites#website-security" },
 
-  // --- Marketing consolidation (/marketing keeps its URL; land on matching section) ---
-  { from: "/apparel", to: "/marketing#apparel" },
-  { from: "/digital-advertising", to: "/marketing#digital-advertising" },
-  { from: "/graphic-design", to: "/marketing#graphic-design" },
+  // --- Marketing consolidation (/marketing keeps its URL; land on combined section) ---
   { from: "/seo", to: "/marketing#seo" },
+  { from: "/digital-advertising", to: "/marketing#digital-advertising" },
   { from: "/social-media-marketing", to: "/marketing#social-media-marketing" },
+  { from: "/graphic-design", to: "/marketing#graphic-design" },
+  { from: "/apparel", to: "/marketing#graphic-design" }, // folded into Brand & Design
 
   // --- Services hub: send to home (nav covers service navigation) ---
   { from: "/services", to: "/" },
