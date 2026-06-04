@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title:
     "Service Area | Mobile Computer Repair Across Denver Metro | Mobile Computer Specialists",
   description:
-    "We come to you across the Denver metro. Mobile computer repair within a 35-mile radius of Arvada: Denver, Lakewood, Littleton, Westminster, Wheat Ridge, Arvada, Commerce City and more. Free diagnostics. No trip fee.",
+    "We come to you across the Denver metro and the surrounding Front Range. Mobile computer repair in Denver, Lakewood, Littleton, Westminster, Wheat Ridge, Arvada, Commerce City and beyond. Free diagnostics. No trip fee.",
   alternates: { canonical: "/service-area" },
 };
 
@@ -58,15 +58,6 @@ const schema = {
     })),
     ...cities.map((c) => ({ "@type": "City", name: `${c}, CO` })),
   ],
-  serviceArea: {
-    "@type": "GeoCircle",
-    geoMidpoint: {
-      "@type": "GeoCoordinates",
-      latitude: 39.8028,
-      longitude: -105.0875,
-    },
-    geoRadius: "56327", // ~35 miles in meters
-  },
 };
 
 export default function ServiceAreaPage() {
@@ -92,7 +83,7 @@ export default function ServiceAreaPage() {
               Where We Work
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-[var(--color-mcs-text)] leading-tight mb-5">
-              Serving a 35-mile radius of the Denver metro.
+              Serving the Denver metro and the surrounding Front Range.
             </h2>
             <p className="text-lg text-[var(--color-mcs-muted)] leading-relaxed">
               For more than 26 years we have made house calls and office visits
