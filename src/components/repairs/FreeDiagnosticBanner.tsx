@@ -22,7 +22,7 @@ export default function FreeDiagnosticBanner() {
         </motion.div>
         <Link
           href="/contact"
-          className="shrink-0 px-7 py-4 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] font-bold text-base hover:scale-[1.03] transition-transform"
+          className="mcs-shine shrink-0 px-7 py-4 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] font-bold text-base hover:scale-[1.03] transition-transform"
         >
           Book Your Free Diagnostic →
         </Link>

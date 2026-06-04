@@ -148,7 +148,7 @@ export default function ContactSplit() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-full px-7 py-4 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] font-bold text-base hover:scale-[1.01] transition-transform disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="mcs-shine w-full px-7 py-4 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] font-bold text-base hover:scale-[1.01] transition-transform disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {status === "sending" ? "Sending..." : "Send Message"}
                 </button>

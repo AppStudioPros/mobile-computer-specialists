@@ -64,7 +64,7 @@ export default function WdpPitch({
             href={ctaHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 px-8 py-4 rounded-full mcs-gradient-blue text-white font-bold text-base hover:scale-[1.03] transition-transform"
+            className="mcs-shine group inline-flex items-center gap-2 px-8 py-4 rounded-full mcs-gradient-blue text-white font-bold text-base hover:scale-[1.03] transition-transform"
           >
             {ctaLabel}
             <span className="group-hover:translate-x-1 transition-transform">

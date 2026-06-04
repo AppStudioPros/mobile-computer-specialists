@@ -31,7 +31,7 @@ export default function FinalCta() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] font-bold text-base hover:scale-[1.03] transition-transform mcs-glow-amber"
+              className="mcs-shine group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] font-bold text-base hover:scale-[1.03] transition-transform mcs-glow-amber"
             >
               Book My Diagnostic
               <span className="group-hover:translate-x-1 transition-transform">
@@ -40,7 +40,7 @@ export default function FinalCta() {
             </Link>
             <a
               href="tel:7202760797"
-              className="inline-flex items-center justify-center px-7 py-4 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-base hover:bg-white/15 transition-colors backdrop-blur-sm"
+              className="mcs-shine inline-flex items-center justify-center px-7 py-4 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-base hover:bg-white/15 transition-colors backdrop-blur-sm"
             >
               Call 720-276-0797
             </a>
