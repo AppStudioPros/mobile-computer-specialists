@@ -12,7 +12,7 @@ const trustItems = [
   { label: "A+ Rating", value: "BBB Accredited", href: BBB_PROFILE },
   { label: "26+ Years", value: "Serving Denver Metro", href: null },
   { label: "Free Diagnostics", value: "We Come to You", href: null },
-  { label: "Mobile Service", value: "We Travel to You", href: null },
+  { label: "Mobile Service", value: "No Trip Fee", href: null },
 ];
 
 export default function TrustStrip() {
