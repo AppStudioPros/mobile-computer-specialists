@@ -13,10 +13,10 @@ export default function Home() {
       <Hero />
       <TrustStrip />
       <WeComeToYou />
+      <HomeAbout />
       <HomeServiceSections />
       <McsPromise />
       <SocialProof />
-      <HomeAbout />
       <FinalCta />
     </>
   );
