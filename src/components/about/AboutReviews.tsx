@@ -72,8 +72,9 @@ export default function AboutReviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="p-6 rounded-2xl mcs-card-light"
+              className="group relative overflow-hidden p-6 rounded-2xl mcs-card-light shadow-sm hover:shadow-md hover:border-[var(--color-mcs-amber)]/50 transition-all"
             >
+              <span className="absolute left-0 top-0 h-full w-1 bg-[var(--color-mcs-amber)] scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" />
               <Stars />
               <p className="mt-4 text-sm text-[var(--color-mcs-text)] leading-relaxed mb-4">
                 {r.body}

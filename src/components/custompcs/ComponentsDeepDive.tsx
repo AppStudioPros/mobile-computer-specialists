@@ -52,7 +52,7 @@ export default function ComponentsDeepDive() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="p-7 rounded-2xl mcs-card-light"
+              className="p-7 rounded-2xl mcs-card-light shadow-sm hover:shadow-lg hover:border-[var(--color-mcs-amber)]/50 hover:scale-[1.02] transition-all"
             >
               <h3 className="text-xl font-bold text-[var(--color-mcs-text)] mb-3">
                 {p.title}

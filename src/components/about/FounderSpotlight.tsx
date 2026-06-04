@@ -70,7 +70,7 @@ export default function FounderSpotlight() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+            className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/[0.08] hover:border-[var(--color-mcs-amber)]/40 transition-all"
           >
             <div className="text-xs font-bold uppercase tracking-wider text-[var(--color-mcs-amber)] mb-5">
               Highlights

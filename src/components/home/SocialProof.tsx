@@ -79,7 +79,7 @@ export default function SocialProof() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="p-8 rounded-2xl mcs-card-light"
+              className="p-8 rounded-2xl mcs-card-light shadow-sm hover:shadow-lg hover:border-[var(--color-mcs-amber)]/50 hover:-translate-y-1 transition-all"
             >
               <div className="text-5xl font-black text-[var(--color-mcs-amber)]/30 leading-none mb-3">
                 &ldquo;

@@ -57,7 +57,7 @@ export default function BuildCategories() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="scroll-mt-24 p-8 rounded-2xl mcs-card-dark"
+              className="scroll-mt-24 p-8 rounded-2xl mcs-card-dark hover:border-[var(--color-mcs-amber)]/50 hover:-translate-y-1 transition-all"
             >
               <div className="text-xs font-bold uppercase tracking-widest text-[var(--color-mcs-amber)] mb-3">
                 {c.short}
