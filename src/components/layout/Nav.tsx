@@ -75,22 +75,11 @@ export default function Nav() {
           ))}
         </nav>
 
-        {/* Right side: phone + CTA */}
+        {/* Right side: CTA */}
         <div className="hidden lg:flex items-center gap-4">
-          <a
-            href="tel:7202760797"
-            className={cn(
-              "text-sm font-semibold transition-colors",
-              scrolled
-                ? "text-[var(--color-mcs-text)] hover:text-[var(--color-mcs-amber-deep)]"
-                : "text-white hover:text-[var(--color-mcs-amber)]"
-            )}
-          >
-            720-276-0797
-          </a>
           <Link
             href="/contact"
-            className="px-5 py-2.5 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] text-sm font-bold hover:scale-105 transition-transform shadow-sm"
+            className="mcs-shine px-5 py-2.5 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] text-sm font-bold hover:scale-105 transition-transform shadow-sm"
           >
             Free Diagnostic
           </Link>
@@ -155,16 +144,10 @@ export default function Nav() {
                 </Link>
               ))}
               <div className="flex flex-col gap-3 pt-4 border-t border-[var(--color-mcs-line)]">
-                <a
-                  href="tel:7202760797"
-                  className="text-base font-semibold text-[var(--color-mcs-text)]"
-                >
-                  720-276-0797
-                </a>
                 <Link
                   href="/contact"
                   onClick={() => setOpen(false)}
-                  className="px-5 py-3 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] text-base font-bold text-center"
+                  className="mcs-shine px-5 py-3 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] text-base font-bold text-center"
                 >
                   Claim Free Diagnostic
                 </Link>
