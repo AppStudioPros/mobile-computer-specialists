@@ -25,25 +25,23 @@ export default function TechBackground({
           animate={{
             x: [0, 60, -40, 0],
             y: [0, -50, 30, 0],
+            scale: [1, 1.12, 0.95, 1],
+            opacity: [0.35 * intensity, 0.5 * intensity, 0.28 * intensity, 0.35 * intensity],
           }}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full blur-[160px]"
-          style={{
-            background: "var(--color-mcs-blue)",
-            opacity: 0.35 * intensity,
-          }}
+          style={{ background: "var(--color-mcs-blue)" }}
         />
         <motion.div
           animate={{
             x: [0, -50, 40, 0],
             y: [0, 40, -30, 0],
+            scale: [0.95, 1.1, 1.02, 0.95],
+            opacity: [0.4 * intensity, 0.22 * intensity, 0.48 * intensity, 0.4 * intensity],
           }}
-          transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 17, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
           className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] rounded-full blur-[180px]"
-          style={{
-            background: "var(--color-mcs-amber)",
-            opacity: 0.4 * intensity,
-          }}
+          style={{ background: "var(--color-mcs-amber)" }}
         />
       </div>
     );
