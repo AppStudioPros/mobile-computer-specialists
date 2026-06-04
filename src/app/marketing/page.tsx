@@ -47,8 +47,8 @@ export default function MarketingPage() {
       <WdpPitch
         intro="Marketing has changed. SEO alone is no longer enough. To win today, you need to rank in Google, be the answer in AI Overviews, and get cited by ChatGPT, Claude, Gemini, and Perplexity. Our sister company runs all of it."
         services={flagshipServices}
-        ctaLabel="Explore Web Design Pros 365 Services"
-        ctaHref="https://webdesignpros365.com/services"
+        ctaLabel="Get in touch with Web Design Pros 365"
+        ctaHref="https://www.webdesignpros365.com/contact"
       />
       <LegacyMarketingList />
       <MarketingSections />
