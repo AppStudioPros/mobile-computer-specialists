@@ -39,7 +39,7 @@ export default function WebsitesPage() {
         eyebrow="Websites"
         title="Meet our sister company,"
         highlight="Web Design Pros 365"
-        subtitle="When you need a website, you want a specialist. We partner with WDP365 so you get the best of both worlds."
+        subtitle="When you need a website, you want a specialist. We partner with Web Design Pros 365 so you get the best of both worlds."
       />
       <WdpPitch
         intro="MCS knows our lane: hardware, repair, custom builds. For websites, we partner with the experts at Web Design Pros 365. Modern stack, fast sites, real designers, real developers."

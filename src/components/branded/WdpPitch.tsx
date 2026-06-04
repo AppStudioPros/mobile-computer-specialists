@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 type Service = { title: string; body: string; badge?: string };
@@ -18,6 +19,27 @@ export default function WdpPitch({
   return (
     <section className="py-20 lg:py-28 bg-[var(--color-mcs-page)]">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        {/* Web Design Pros 365 branded logo panel (light bg so the navy mark reads) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative overflow-hidden rounded-3xl bg-white border border-[var(--color-mcs-line)] shadow-sm p-8 sm:p-12 mb-12 flex justify-center"
+        >
+          {/* WDP365 brand accent bars (purple / royal blue / gold) */}
+          <span className="absolute top-0 left-0 h-1.5 w-1/3 bg-gradient-to-r from-[#5B2E8C] to-[#A23DB5]" />
+          <span className="absolute top-0 left-1/3 h-1.5 w-1/3 bg-gradient-to-r from-[#1F4FD0] to-[#0F6FE8]" />
+          <span className="absolute top-0 left-2/3 h-1.5 w-1/3 bg-gradient-to-r from-[#0F6FE8] to-[#F5B71E]" />
+          <Image
+            src="/brand/wdp365-logo.png"
+            alt="Web Design Pros 365"
+            width={2412}
+            height={1111}
+            className="h-20 sm:h-28 w-auto"
+          />
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
