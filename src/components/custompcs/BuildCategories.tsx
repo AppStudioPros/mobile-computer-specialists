@@ -57,6 +57,31 @@ const categories: BuildCategory[] = [
     },
   },
   {
+    id: "ai-builds",
+    title: "AI Hardware Builds",
+    short: "Built for AI.",
+    body:
+      "Purpose-built machines for AI work: local large language model rigs, multi-GPU builds, and AI workstations that run models on your own hardware instead of paying for the cloud every month.",
+    spec: "RTX 4090 / multi-GPU • 128GB+ RAM • high-VRAM • NVMe arrays",
+    detail: {
+      intro: [
+        "AI work has its own hardware demands, and most off-the-shelf machines are not built for it. Our AI hardware builds are designed for running large language models locally, training and fine-tuning, and heavy GPU compute, so you keep your data on your own equipment and stop paying the cloud by the hour.",
+        "Whether you want a single high-VRAM workstation for local LLMs or a multi-GPU rig for serious compute, we spec it around the models and frameworks you actually run. Real performance, real ownership, no recurring cloud bill.",
+      ],
+      includesTitle: "What goes into an AI build",
+      includes: [
+        "High-VRAM GPUs (RTX 4090 and multi-GPU options)",
+        "Local LLM and inference rigs",
+        "Training and fine-tuning workstations",
+        "128GB or more system memory",
+        "Fast NVMe storage arrays for datasets",
+        "Cooling and power built for sustained GPU load",
+      ],
+      process:
+        "Tell us the models and workloads you plan to run. We spec the right GPUs, memory, and storage, build it, and test it against real AI workloads before it reaches you. Own your compute instead of renting it.",
+    },
+  },
+  {
     id: "workstations",
     title: "PC Workstations",
     short: "Unlimited capability.",
@@ -119,7 +144,7 @@ export default function BuildCategories() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {categories.map((c, i) => (
             <motion.button
               key={c.id}

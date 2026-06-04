@@ -146,6 +146,32 @@ export const repairServices: RepairService[] = [
     },
   },
   {
+    id: "ai-setup",
+    title: "AI Software & Setup",
+    short:
+      "Get AI running on your machine. Local models, tools, and setup, configured for you.",
+    body:
+      "AI is moving fast and the setup is half the battle. We install and configure local AI tools and models, set up the software, and get everything running on your hardware so you can actually use it.",
+    keyword: "ai setup denver",
+    detail: {
+      intro: [
+        "AI is powerful, but getting it running on your own machine is where most people get stuck. We handle AI software and setup across the Denver metro: installing local large language models, configuring the tools and frameworks, and tuning everything to your hardware so it actually runs well.",
+        "Whether you want a private local chatbot, AI tools for your business, or help getting a model running on a new machine, we set it up, test it, and show you how to use it. Your data stays on your hardware, and you are not stuck paying monthly for something you could run yourself.",
+      ],
+      includesTitle: "What AI setup covers",
+      includes: [
+        "Install and configure local LLMs and AI tools",
+        "Set up frameworks and dependencies",
+        "Tune performance to your hardware",
+        "Private, on-device AI configuration",
+        "Business AI tool setup and integration",
+        "Training so you can actually use it",
+      ],
+      process:
+        "Tell us what you want AI to do for you. We recommend the right tools, install and configure them on your machine, and make sure it runs before we leave. Free diagnostic first, by-the-job pricing.",
+    },
+  },
+  {
     id: "it-support",
     title: "IT Support",
     short:

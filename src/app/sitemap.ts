@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/", priority: 1.0, freq: "weekly" },
     { path: "/computer-repairs", priority: 0.9, freq: "monthly" },
     { path: "/custom-pcs", priority: 0.9, freq: "monthly" },
+    { path: "/managed-services", priority: 0.9, freq: "monthly" },
     { path: "/service-area", priority: 0.8, freq: "monthly" },
     { path: "/about", priority: 0.7, freq: "monthly" },
     { path: "/contact", priority: 0.8, freq: "monthly" },

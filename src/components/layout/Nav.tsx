@@ -12,10 +12,10 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Computer Repairs", href: "/computer-repairs" },
   { label: "Custom PCs", href: "/custom-pcs" },
+  { label: "Managed Services", href: "/managed-services" },
   { label: "Websites", href: "/websites" },
   { label: "Marketing", href: "/marketing" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export default function Nav() {

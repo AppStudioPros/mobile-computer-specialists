@@ -3,10 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import TechBackground from "@/components/ui/TechBackground";
-import LordIcon from "@/components/ui/LordIcon";
-
-// Lordicon: animated computer display (confirmed: 478-computer-display-outline)
-const ICON_COMPUTER = "https://cdn.lordicon.com/qhgmphtg.json";
+import BbbBadge from "@/components/ui/BbbBadge";
 
 export default function Hero() {
   return (
@@ -63,7 +60,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right: oversized ghosted-blue diagnostic icon, baked into the bg */}
+          {/* Right: BBB A+ accreditation badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -71,20 +68,14 @@ export default function Hero() {
             className="hidden lg:flex justify-center"
           >
             <div className="relative flex items-center justify-center">
-              {/* Soft glow that drifts/breathes slowly behind the icon */}
+              {/* Soft glow that drifts/breathes slowly behind the badge */}
               <motion.div
                 className="absolute inset-0 rounded-full bg-[var(--color-mcs-blue)] blur-[100px]"
                 animate={{ opacity: [0.25, 0.5, 0.25], scale: [0.9, 1.08, 0.9] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
               />
-              {/* Oversized icon, all blue, faded so it reads as part of the background */}
-              <div className="relative opacity-25">
-                <LordIcon
-                  src={ICON_COMPUTER}
-                  trigger="in"
-                  colors="primary:#189dfc,secondary:#189dfc"
-                  size={420}
-                />
+              <div className="relative">
+                <BbbBadge />
               </div>
             </div>
           </motion.div>
