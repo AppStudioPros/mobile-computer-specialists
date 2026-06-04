@@ -3,6 +3,7 @@ import PageHero from "@/components/ui/PageHero";
 import PageCta from "@/components/ui/PageCta";
 import WdpPitch from "@/components/branded/WdpPitch";
 import LegacyMarketingList from "@/components/branded/LegacyMarketingList";
+import MarketingSections from "@/components/branded/MarketingSections";
 
 const flagshipServices = [
   {
@@ -50,6 +51,7 @@ export default function MarketingPage() {
         ctaHref="https://webdesignpros365.com/services"
       />
       <LegacyMarketingList />
+      <MarketingSections />
       <PageCta
         title="Ready to grow?"
         subtitle="Start with MCS or jump straight to our sister company. Either way, we&apos;ll get you in front of the right audience."
