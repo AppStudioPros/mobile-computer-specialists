@@ -54,12 +54,17 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/websites" className="hover:text-white">
-                  Websites
+                  Web & AI
                 </Link>
               </li>
               <li>
                 <Link href="/marketing" className="hover:text-white">
                   Marketing
+                </Link>
+              </li>
+              <li>
+                <Link href="/business-technologies" className="hover:text-white">
+                  Business Technologies
                 </Link>
               </li>
             </ul>

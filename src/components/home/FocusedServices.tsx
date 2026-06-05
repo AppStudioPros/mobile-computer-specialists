@@ -18,7 +18,7 @@ const focus = [
   {
     title: "Managed IT and Security",
     body: "Ongoing technology support that keeps your business running. Monitoring, security, and a real person who answers when you call. Backed by 26 years of hands-on expertise.",
-    href: "/managed-services",
+    href: "/business-technologies",
   },
 ];
 

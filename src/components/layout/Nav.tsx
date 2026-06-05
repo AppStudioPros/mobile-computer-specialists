@@ -9,13 +9,12 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Websites", href: "/websites" },
+  { label: "Web & AI", href: "/websites" },
   { label: "Marketing", href: "/marketing" },
-  { label: "Managed Services", href: "/managed-services" },
+  { label: "Business Technologies", href: "/business-technologies" },
   { label: "Computer Repairs", href: "/computer-repairs" },
   { label: "Custom PCs", href: "/custom-pcs" },
   { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
 ];
 
 export default function Nav() {

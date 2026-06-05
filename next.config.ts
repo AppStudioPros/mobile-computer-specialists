@@ -37,6 +37,9 @@ const redirectMap: { from: string; to: string }[] = [
   { from: "/graphic-design", to: "/marketing#graphic-design" },
   { from: "/apparel", to: "/marketing#graphic-design" }, // folded into Brand & Design
 
+  // --- Business Technologies rename (was Managed Services) ---
+  { from: "/managed-services", to: "/business-technologies" },
+
   // --- Services hub: send to home (nav covers service navigation) ---
   { from: "/services", to: "/" },
 

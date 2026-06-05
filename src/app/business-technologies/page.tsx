@@ -5,17 +5,17 @@ import ManagedServices from "@/components/managed/ManagedServices";
 
 export const metadata: Metadata = {
   title:
-    "Managed Services | Cloud & Managed Security | Mobile Computer Specialists",
+    "Business Technologies | Managed IT, Cloud & Security | Mobile Computer Specialists",
   description:
-    "Managed IT, cloud services, and managed security for Denver businesses. Proactive monitoring, backups, and protection on a simple monthly plan. We come to you.",
-  alternates: { canonical: "/managed-services" },
+    "Business technology services for Denver companies: managed IT, cloud services, and managed security. Proactive monitoring, backups, and protection on a simple monthly plan. We come to you.",
+  alternates: { canonical: "/business-technologies" },
 };
 
-export default function ManagedServicesPage() {
+export default function BusinessTechnologiesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Managed Services"
+        eyebrow="Business Technologies"
         title="IT that runs in the"
         highlight="background"
         subtitle="Cloud services and managed security for Denver businesses, on a simple monthly plan. We watch your systems, back up your data, and stop problems before they cost you."
