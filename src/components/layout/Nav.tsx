@@ -9,9 +9,9 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Home", href: "/" },
+  { label: "Business Tech", href: "/business-technologies" },
   { label: "Web & AI", href: "/websites" },
   { label: "Marketing", href: "/marketing" },
-  { label: "Business Technologies", href: "/business-technologies" },
   { label: "Computer Repairs", href: "/computer-repairs" },
   { label: "Custom PCs", href: "/custom-pcs" },
   { label: "About", href: "/about" },
