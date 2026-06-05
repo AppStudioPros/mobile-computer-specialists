@@ -26,21 +26,23 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 backdrop-blur-sm mb-8">
               <span className="w-2 h-2 rounded-full bg-[var(--color-mcs-amber)] animate-pulse" />
               <span className="text-xs font-semibold tracking-wider uppercase text-white/95">
-                Denver&apos;s Trusted IT Service for 26+ Years
+                Denver Business Technology · 26+ Years
               </span>
             </div>
 
             {/* H1 */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-6">
-              <span className="block text-white">Home of the</span>
+              <span className="block text-white">Technology that grows</span>
               <span className="block mcs-gradient-text-on-dark">
-                Free PC Diagnostics
+                your business
               </span>
             </h1>
 
             {/* Subhead */}
             <p className="text-xl sm:text-2xl text-white/70 max-w-2xl leading-relaxed mb-10 font-light">
-              We come to you. No trip fee. No obligation. No kidding.
+              Modern websites, AI search visibility, and managed IT for Denver
+              businesses. Built by the same team Denver has trusted for over 26
+              years.
             </p>
 
             {/* CTAs */}
@@ -49,17 +51,17 @@ export default function Hero() {
                 href="/contact"
                 className="mcs-shine group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full mcs-gradient-amber text-[var(--color-mcs-ink)] font-bold text-base hover:scale-[1.03] transition-transform mcs-glow-amber"
               >
-                Claim Free Diagnostic
+                Get a Free Audit
                 <span className="group-hover:translate-x-1 transition-transform">
                   →
                 </span>
               </Link>
-              <a
-                href="tel:7202760797"
+              <Link
+                href="/websites"
                 className="mcs-shine inline-flex items-center justify-center px-7 py-4 rounded-full bg-white/8 border border-white/20 text-white font-semibold text-base hover:bg-white/15 transition-colors backdrop-blur-sm"
               >
-                Call 720-276-0797
-              </a>
+                See Our Work
+              </Link>
             </div>
           </motion.div>
 

@@ -48,8 +48,8 @@ const schema = {
   priceRange: "Free diagnostics; pricing by job",
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "168",
+    ratingValue: "4.8",
+    reviewCount: "170",
   },
   areaServed: [
     ...counties.map((c) => ({

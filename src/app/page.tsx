@@ -12,9 +12,9 @@ export default function Home() {
     <>
       <Hero />
       <TrustStrip />
+      <HomeServiceSections />
       <WeComeToYou />
       <HomeAbout />
-      <HomeServiceSections />
       <McsPromise />
       <SocialProof />
       <FinalCta />

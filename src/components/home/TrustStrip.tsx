@@ -8,7 +8,7 @@ const BBB_PROFILE =
   "https://www.bbb.org/us/co/arvada/profile/computer-repair/mobile-computer-specialists-1296-90100509";
 
 const trustItems = [
-  { label: "5.0 Stars", value: "168 Google Reviews", href: GOOGLE_PROFILE },
+  { label: "4.8 Stars", value: "170 Google Reviews", href: GOOGLE_PROFILE },
   { label: "A+ Rating", value: "BBB Accredited", href: BBB_PROFILE },
   { label: "26+ Years", value: "Serving Denver Metro", href: null },
   { label: "Free Diagnostics", value: "We Come to You", href: null },

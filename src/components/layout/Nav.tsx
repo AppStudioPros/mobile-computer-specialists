@@ -9,12 +9,12 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Computer Repairs", href: "/computer-repairs" },
-  { label: "Custom PCs", href: "/custom-pcs" },
-  { label: "Managed Services", href: "/managed-services" },
   { label: "Websites", href: "/websites" },
   { label: "Marketing", href: "/marketing" },
+  { label: "Managed Services", href: "/managed-services" },
+  { label: "Computer Repairs", href: "/computer-repairs" },
+  { label: "Custom PCs", href: "/custom-pcs" },
+  { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
 
