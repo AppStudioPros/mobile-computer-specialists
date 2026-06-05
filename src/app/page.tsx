@@ -1,10 +1,11 @@
 import Hero from "@/components/home/Hero";
 import TrustStrip from "@/components/home/TrustStrip";
 import WeComeToYou from "@/components/home/WeComeToYou";
-import HomeServiceSections from "@/components/home/HomeServiceSections";
-import McsPromise from "@/components/home/McsPromise";
+import FocusedServices from "@/components/home/FocusedServices";
+import WdpSection from "@/components/home/WdpSection";
+import ServicesGrid from "@/components/home/ServicesGrid";
+import HomeAboutPromise from "@/components/home/HomeAboutPromise";
 import SocialProof from "@/components/home/SocialProof";
-import HomeAbout from "@/components/home/HomeAbout";
 import FinalCta from "@/components/home/FinalCta";
 
 export default function Home() {
@@ -12,10 +13,11 @@ export default function Home() {
     <>
       <Hero />
       <TrustStrip />
-      <HomeServiceSections />
+      <FocusedServices />
+      <WdpSection />
+      <ServicesGrid />
       <WeComeToYou />
-      <HomeAbout />
-      <McsPromise />
+      <HomeAboutPromise />
       <SocialProof />
       <FinalCta />
     </>

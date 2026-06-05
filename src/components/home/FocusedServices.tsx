@@ -1,0 +1,89 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import TechBackground from "@/components/ui/TechBackground";
+
+const focus = [
+  {
+    title: "Modern Websites and Web Apps",
+    body: "Fast, custom-built sites and web apps on the same architecture used by today's top technology companies. Built to load fast, rank well, and turn visitors into clients.",
+    href: "/websites",
+  },
+  {
+    title: "AI Search Visibility",
+    body: "We make sure your business shows up where customers are already looking, in Google and in AI answer engines like ChatGPT and Perplexity. SEO, AEO, and GEO done right.",
+    href: "/marketing",
+  },
+  {
+    title: "Managed IT and Security",
+    body: "Ongoing technology support that keeps your business running. Monitoring, security, and a real person who answers when you call. Backed by 26 years of hands-on experience.",
+    href: "/managed-services",
+  },
+];
+
+export default function FocusedServices() {
+  return (
+    <section className="relative py-24 lg:py-32 overflow-hidden bg-[var(--color-mcs-page-2)] border-y border-[var(--color-mcs-line)]">
+      <TechBackground variant="light" intensity={0.6} />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mb-16"
+        >
+          <div className="text-[var(--color-mcs-amber-deep)] text-sm font-bold uppercase tracking-wider mb-4">
+            What We Are Focused On
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-black text-[var(--color-mcs-text)] leading-tight mb-4">
+            Technology that brings in business.
+          </h2>
+          <p className="text-lg text-[var(--color-mcs-muted)] leading-relaxed">
+            We help Denver businesses modernize how they show up online and stay
+            ahead of the AI search era. The same team you trust for your
+            computers, now building the systems that grow your business.
+          </p>
+        </motion.div>
+
+        {/* Numbered cards, How-it-Works styling */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {focus.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+            >
+              <Link
+                href={item.href}
+                className="group relative block h-full p-7 rounded-2xl mcs-card-light shadow-sm hover:shadow-md hover:border-[var(--color-mcs-amber)]/50 transition-all overflow-hidden"
+              >
+                {/* amber accent bar on hover */}
+                <span className="absolute left-0 top-0 h-full w-1 bg-[var(--color-mcs-amber)] scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" />
+                <div className="text-5xl font-black text-[var(--color-mcs-amber)] mb-4 leading-none">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <h3 className="text-lg font-bold text-[var(--color-mcs-text)] mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-[var(--color-mcs-muted)] leading-relaxed mb-5">
+                  {item.body}
+                </p>
+                <span className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-mcs-amber-deep)]">
+                  Learn more
+                  <span className="group-hover:translate-x-1 transition-transform">
+                    &rarr;
+                  </span>
+                </span>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
