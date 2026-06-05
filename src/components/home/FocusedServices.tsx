@@ -17,7 +17,7 @@ const focus = [
   },
   {
     title: "Managed IT and Security",
-    body: "Ongoing technology support that keeps your business running. Monitoring, security, and a real person who answers when you call. Backed by 26 years of hands-on experience.",
+    body: "Ongoing technology support that keeps your business running. Monitoring, security, and a real person who answers when you call. Backed by 26 years of hands-on expertise.",
     href: "/managed-services",
   },
 ];
@@ -36,15 +36,15 @@ export default function FocusedServices() {
           className="max-w-3xl mb-16"
         >
           <div className="text-[var(--color-mcs-amber-deep)] text-sm font-bold uppercase tracking-wider mb-4">
-            What We Are Focused On
+            What We Do
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-[var(--color-mcs-text)] leading-tight mb-4">
             Technology that brings in business.
           </h2>
           <p className="text-lg text-[var(--color-mcs-muted)] leading-relaxed">
-            We help Denver businesses modernize how they show up online and stay
-            ahead of the AI search era. The same team you trust for your
-            computers, now building the systems that grow your business.
+            We help Denver businesses show up online and stay ahead in the AI
+            search era. The same team you trust for your computers builds the
+            systems that grow your business.
           </p>
         </motion.div>
 

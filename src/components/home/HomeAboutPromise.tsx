@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import BbbBadge from "@/components/ui/BbbBadge";
 
 export default function HomeAboutPromise() {
   return (
@@ -69,11 +68,6 @@ export default function HomeAboutPromise() {
                 &rarr;
               </span>
             </Link>
-          </div>
-
-          {/* BBB trust badge */}
-          <div className="mt-10">
-            <BbbBadge />
           </div>
         </motion.div>
       </div>

@@ -42,14 +42,14 @@ export default function ServicesGrid() {
           className="max-w-3xl mb-16"
         >
           <div className="text-[var(--color-mcs-amber-deep)] text-sm font-bold uppercase tracking-wider mb-4">
-            What We Do
+            Other Services
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-[var(--color-mcs-text)] leading-tight mb-4">
             Built for Denver. Trusted everywhere.
           </h2>
           <p className="text-lg text-[var(--color-mcs-muted)] leading-relaxed">
-            Four service lines, one promise: honest work, fair pricing, free
-            advice for life.
+            One promise across everything we do: honest work, fair pricing, and
+            free advice for life.
           </p>
         </motion.div>
 
