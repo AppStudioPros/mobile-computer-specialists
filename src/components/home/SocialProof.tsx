@@ -43,34 +43,8 @@ function Stars() {
 
 export default function SocialProof() {
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden bg-[var(--color-mcs-page)]">
-      {/* Drifting glow background (MCS Promise style): slower, smoother, bigger pulse range */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Slow-drifting blue glow */}
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-[600px] h-[600px] rounded-full bg-[var(--color-mcs-blue)] blur-[200px]"
-          animate={{
-            x: ["-50%", "-34%", "-62%", "-50%"],
-            y: ["-50%", "-64%", "-38%", "-50%"],
-            opacity: [0.08, 0.2, 0.05, 0.08],
-            scale: [0.85, 1.3, 0.8, 0.85],
-          }}
-          transition={{ duration: 32, repeat: Infinity, ease: "easeInOut" }}
-        />
-        {/* Offbeat amber glow for warmth */}
-        <motion.div
-          className="absolute top-1/3 right-0 w-[420px] h-[420px] rounded-full bg-[var(--color-mcs-amber)] blur-[180px]"
-          animate={{
-            x: [0, -60, 50, 0],
-            y: [0, 50, -40, 0],
-            opacity: [0.05, 0.15, 0.04, 0.05],
-            scale: [0.85, 1.28, 0.82, 0.85],
-          }}
-          transition={{ duration: 40, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-        />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="relative py-24 lg:py-32 bg-[var(--color-mcs-page-2)]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
