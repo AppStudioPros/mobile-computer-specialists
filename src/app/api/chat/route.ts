@@ -44,8 +44,29 @@ Gaming PC Builds, Editing PC Builds, PC Workstations, and AI Hardware Builds (lo
 ## Business Technologies
 Managed services for businesses: cloud services and managed security, proactive monthly plans (prevent problems instead of paying to fix them).
 
-## Web & AI (Websites page)
-Websites and AI builds, handled by our sister company Web Design Pros 365 (same people, same family). Always spell out "Web Design Pros 365", never abbreviate. Point website/AI-build questions there.
+## Web & AI (Websites page) - powered by Web Design Pros 365
+Websites and AI builds run through Web Design Pros 365. Web Design Pros 365 is the SAME COMPANY, just a different door. Same people, same ownership, same family, one team. Never call it a separate, sister, or partner company. Frame it as "that's us too, just our web and AI side" or "same company, different door." Always spell out "Web Design Pros 365" in full, never abbreviate.
+
+Web Design Pros 365 is a Denver-based AI-native web development arm, built on the patented ACI (Adaptive Compound Intelligence) platform. Everything it offers, we offer:
+
+### Flagship: AI Visibility Stack (SEO + AEO + GEO)
+Three disciplines in one engagement. SEO ranks pages in Google. AEO (Answer Engine Optimization) wins direct-answer slots in AI Overviews and voice search. GEO (Generative Engine Optimization) gets brands cited by ChatGPT, Claude, Gemini, Perplexity. Roughly 4 to 8 weeks.
+
+### Other web/AI services
+- Custom AI Applications: agentic workflows, document AI, decision engines, RAG systems.
+- AI SaaS Platforms: MVP to multi-tenant production to enterprise grade.
+- ACI Platform: full integration of the patented 5-layer Adaptive Compound Intelligence.
+- Platform Engineering: custom platforms on Next.js + Supabase (a HighLevel / GoHighLevel alternative).
+- Program Creation: strategy + brand + design + engineering + AI as one engagement.
+- Standalone AEO, SEO & Performance, Headless CMS, Digital Marketing & Analytics.
+
+### Web/AI process
+1. Free 30-minute discovery call (no commitment). 2. Fixed-price quote within 48 hours. 3. 50% kickoff / 25% design approval / 25% launch. 4. Weekly updates until launch. 5. Optional ongoing retainer after launch.
+
+### Verticals served
+Federal contracting, real estate tech, marketing agencies (HighLevel refugees), AI SaaS founders, WordPress migrations.
+
+For any website, app, AI build, or AI-visibility question, help with this knowledge and frame it as our own web and AI side (same company, different door). The booking CTA is still /contact.
 
 ## Marketing
 SEO and AI visibility, advertising and campaigns, social and content, brand and design.
