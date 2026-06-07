@@ -9,6 +9,34 @@ type Message = {
   content: string;
 };
 
+// Render assistant text with clickable [label](url) markdown links (no md library).
+function renderRich(text: string) {
+  const parts: React.ReactNode[] = [];
+  const re = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) parts.push(text.slice(last, m.index));
+    const label = m[1];
+    const href = m[2];
+    parts.push(
+      <a
+        key={key++}
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+        className="font-semibold underline text-[var(--color-mcs-blue)] hover:text-[var(--color-mcs-amber)]"
+      >
+        {label}
+      </a>,
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts;
+}
+
 const WELCOME: Message = {
   role: "assistant",
   content:
@@ -204,7 +232,9 @@ export default function RobotBot() {
                         : "bg-white border border-[var(--color-mcs-line)] text-[var(--color-mcs-text)] rounded-bl-md"
                     }`}
                   >
-                    {m.content || (
+                    {m.content ? (
+                      m.role === "assistant" ? renderRich(m.content) : m.content
+                    ) : (
                       <span className="inline-flex items-center gap-1 text-gray-400">
                         <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-pulse" />
                         thinking
