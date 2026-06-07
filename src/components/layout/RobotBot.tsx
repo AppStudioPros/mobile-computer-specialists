@@ -5,40 +5,132 @@ import { motion, AnimatePresence } from "framer-motion";
 import AiNodeOrb from "@/components/ui/AiNodeOrb";
 
 type Message = {
-  role: "bot" | "user";
-  text: string;
+  role: "assistant" | "user";
+  content: string;
 };
 
-const dummyResponses = [
-  "I'm still learning! For now, the fastest way to reach a real human is to call 720-276-0797 or claim your free diagnostic.",
-  "Great question! I'll have a smarter answer soon. In the meantime, our team can help directly: 720-276-0797.",
-  "Thanks for chatting! I'm just a placeholder bot for now. Email us at info@mobilecomputerspecialists.com or call 720-276-0797.",
+const WELCOME: Message = {
+  role: "assistant",
+  content:
+    "Hi! I'm the MCS assistant. We're mobile, so we come to you. Ask me about computer repairs, custom PCs, our free diagnostic, or where we travel.",
+};
+
+const SUGGESTED = [
+  "My computer is really slow, can you help?",
+  "Do you come to my area?",
+  "How does the free diagnostic work?",
+  "I think I have a virus",
 ];
 
 export default function RobotBot() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: "bot",
-      text: "Hi! I'm the MCS bot. I'm still in training, so my answers are limited for now. Got a quick question, or want to book a free diagnostic?",
-    },
-  ]);
-  const endRef = useRef<HTMLDivElement | null>(null);
+  const [streaming, setStreaming] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [messages, setMessages] = useState<Message[]>([WELCOME]);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [messages, streaming]);
 
-  function send() {
-    if (!input.trim()) return;
-    const userMsg: Message = { role: "user", text: input.trim() };
-    setMessages((prev) => [...prev, userMsg]);
+  useEffect(() => {
+    if (open) {
+      const t = setTimeout(() => inputRef.current?.focus(), 200);
+      return () => clearTimeout(t);
+    }
+  }, [open]);
+
+  async function sendMessage(overrideText?: string) {
+    const text = (overrideText ?? input).trim();
+    if (!text || streaming) return;
     setInput("");
-    setTimeout(() => {
-      const reply = dummyResponses[Math.floor(Math.random() * dummyResponses.length)];
-      setMessages((prev) => [...prev, { role: "bot", text: reply }]);
-    }, 600);
+    setError(null);
+
+    const next = [...messages, { role: "user" as const, content: text }];
+    setMessages(next);
+    setStreaming(true);
+    setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        // strip the UI-only welcome message from the wire payload
+        body: JSON.stringify({ messages: next.slice(1) }),
+      });
+
+      if (!res.ok || !res.body) {
+        const errBody = await res
+          .json()
+          .catch(() => ({ error: "Request failed" }));
+        throw new Error(errBody.error || `HTTP ${res.status}`);
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop() ?? "";
+        for (const line of lines) {
+          if (!line.startsWith("data: ")) continue;
+          const data = line.slice(6);
+          if (data === "[DONE]") continue;
+          try {
+            const parsed = JSON.parse(data);
+            if (parsed.error) throw new Error(parsed.error);
+            if (parsed.text) {
+              setMessages((prev) => {
+                const updated = [...prev];
+                const last = updated[updated.length - 1];
+                if (last && last.role === "assistant") {
+                  updated[updated.length - 1] = {
+                    ...last,
+                    content: last.content + parsed.text,
+                  };
+                }
+                return updated;
+              });
+            }
+          } catch (e) {
+            if (e instanceof Error && e.message !== data) throw e;
+          }
+        }
+      }
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "Something went wrong.";
+      setError(message);
+      setMessages((prev) => {
+        const last = prev[prev.length - 1];
+        if (last && last.role === "assistant" && last.content === "") {
+          return prev.slice(0, -1);
+        }
+        return prev;
+      });
+    } finally {
+      setStreaming(false);
+    }
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    sendMessage();
+  }
+
+  function resetChat() {
+    setMessages([WELCOME]);
+    setError(null);
+    setInput("");
   }
 
   return (
@@ -76,11 +168,19 @@ export default function RobotBot() {
               </div>
               <div>
                 <div className="text-sm font-bold">MCS Assistant</div>
-                <div className="text-xs text-white/75">Beta — still learning</div>
+                <div className="text-xs text-white/75">We come to you</div>
               </div>
               <button
+                onClick={resetChat}
+                className="ml-auto text-white/70 hover:text-white text-xs"
+                aria-label="Reset chat"
+                title="Reset chat"
+              >
+                Reset
+              </button>
+              <button
                 onClick={() => setOpen(false)}
-                className="ml-auto text-white/70 hover:text-white text-xl leading-none"
+                className="text-white/70 hover:text-white text-xl leading-none"
                 aria-label="Close"
               >
                 ×
@@ -88,38 +188,75 @@ export default function RobotBot() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-[var(--color-mcs-page)]">
+            <div
+              ref={scrollRef}
+              className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-[var(--color-mcs-page)]"
+            >
               {messages.map((m, i) => (
                 <div
                   key={i}
                   className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-snug ${
+                    className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-snug whitespace-pre-wrap ${
                       m.role === "user"
                         ? "bg-[var(--color-mcs-blue)] text-white rounded-br-md"
                         : "bg-white border border-[var(--color-mcs-line)] text-[var(--color-mcs-text)] rounded-bl-md"
                     }`}
                   >
-                    {m.text}
+                    {m.content || (
+                      <span className="inline-flex items-center gap-1 text-gray-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-pulse" />
+                        thinking
+                      </span>
+                    )}
                   </div>
                 </div>
               ))}
-              <div ref={endRef} />
+              {error && (
+                <div className="text-xs text-red-600 bg-red-50 border border-red-200 rounded-xl px-3 py-2">
+                  {error}
+                </div>
+              )}
             </div>
 
+            {/* Suggested prompts — only on initial state */}
+            {messages.length === 1 && !streaming && (
+              <div className="px-4 pb-2 bg-[var(--color-mcs-page)] border-t border-[var(--color-mcs-line)]">
+                <p className="text-[10px] uppercase tracking-wider text-gray-400 mb-2 mt-2">
+                  Try asking
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {SUGGESTED.map((s) => (
+                    <button
+                      key={s}
+                      onClick={() => sendMessage(s)}
+                      className="text-xs px-3 py-1.5 rounded-full bg-white border border-[var(--color-mcs-line)] text-[var(--color-mcs-text)] hover:border-[var(--color-mcs-blue)] hover:text-[var(--color-mcs-blue)] transition-colors"
+                    >
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Input */}
-            <div className="px-4 py-3 border-t border-[var(--color-mcs-line)] bg-white flex items-center gap-2">
+            <form
+              onSubmit={handleSubmit}
+              className="px-4 py-3 border-t border-[var(--color-mcs-line)] bg-white flex items-center gap-2"
+            >
               <input
+                ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && send()}
                 placeholder="Ask me anything..."
-                className="flex-1 px-4 py-2.5 rounded-full bg-[var(--color-mcs-page)] border border-[var(--color-mcs-line)] text-sm focus:outline-none focus:border-[var(--color-mcs-blue)] transition-colors"
+                disabled={streaming}
+                className="flex-1 px-4 py-2.5 rounded-full bg-[var(--color-mcs-page)] border border-[var(--color-mcs-line)] text-sm focus:outline-none focus:border-[var(--color-mcs-blue)] transition-colors disabled:opacity-50"
               />
               <button
-                onClick={send}
-                className="w-10 h-10 rounded-full mcs-gradient-amber flex items-center justify-center hover:scale-105 transition-transform"
+                type="submit"
+                disabled={streaming || !input.trim()}
+                className="w-10 h-10 rounded-full mcs-gradient-amber flex items-center justify-center hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Send"
               >
                 <svg
@@ -136,7 +273,7 @@ export default function RobotBot() {
                   <path d="M5 12l14-7-7 14-2-5-5-2z" />
                 </svg>
               </button>
-            </div>
+            </form>
           </motion.div>
         )}
       </AnimatePresence>
