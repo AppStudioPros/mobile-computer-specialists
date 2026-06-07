@@ -40,14 +40,14 @@ function renderRich(text: string) {
 const WELCOME: Message = {
   role: "assistant",
   content:
-    "Hi! I'm the MCS assistant. We're mobile, so we come to you. Ask me about computer repairs, custom PCs, our free diagnostic, or where we travel.",
+    "Hi! I'm the MCS assistant. We help businesses with managed IT, cloud, security, websites and AI, plus marketing. We also do computer repairs and custom PCs. What can I help with?",
 };
 
 const SUGGESTED = [
-  "My computer is really slow, can you help?",
-  "Do you come to my area?",
-  "How does the free diagnostic work?",
-  "I think I have a virus",
+  "What are managed services?",
+  "Can you handle our business IT?",
+  "Do you build websites and AI?",
+  "Help with marketing?",
 ];
 
 export default function RobotBot() {
