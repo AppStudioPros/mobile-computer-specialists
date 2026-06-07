@@ -47,7 +47,7 @@ export async function POST(req: Request) {
     `;
 
     await resend.emails.send({
-      from: "MCS Website <noreply@mobilecomputerspecialists.com>",
+      from: "MCS Website <noreply@mail.mobilecomputerspecialists.com>",
       to: "info@mobilecomputerspecialists.com",
       replyTo: email,
       subject,
