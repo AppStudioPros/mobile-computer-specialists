@@ -5,12 +5,14 @@ import type { NextConfig } from "next";
  * Every legacy URL points to its consolidated new home (page + section anchor).
  * Next.js matches these server-side before rendering. permanent: true = HTTP 308/301.
  *
- * TRAILING SLASH: the old WordPress site indexed every URL WITH a trailing slash
- * (e.g. /virus-removal/). With trailingSlash:false, Next would first 308 /foo/ -> /foo
- * and THEN hit our redirect = a 2-hop chain on every legacy URL (verified 2026-06-07).
- * To keep authority transfer to a single clean hop, we emit BOTH a slash-less and a
- * slashed source for every entry, each pointing directly at the final destination.
- * See buildRedirects() below.
+ * TRAILING SLASH (verified 2026-06-07): the old WordPress site indexed every URL WITH
+ * a trailing slash (e.g. /virus-removal/). With trailingSlash:false, Next normalizes
+ * /foo/ -> /foo with its OWN 308 FIRST, then hits our redirect = a 2-hop permanent chain
+ * on the slashed (indexed) form. We accept this: a 308 -> 308 chain to the same final
+ * destination passes full authority and Google handles short permanent chains fine.
+ * Forcing single-hop would require trailingSlash:true + reconciling all sitemap/canonical
+ * URLs, a bigger real-world risk than a harmless second hop. Decision: keep slash-less
+ * canonical URLs, accept the 2-hop on legacy slashed URLs.
  */
 
 const redirectMap: { from: string; to: string }[] = [
@@ -60,25 +62,14 @@ const redirectMap: { from: string; to: string }[] = [
   { from: "/hello-world", to: "/" },
 ];
 
-/**
- * Expand each entry into two redirects: slash-less and slashed, both -> final
- * destination in ONE hop. Skips the slashed variant for "/" (no such thing).
- */
-function buildRedirects() {
-  return redirectMap.flatMap(({ from, to }) => {
-    const base = from.replace(/\/$/, "");
-    const entries = [{ source: base, destination: to, permanent: true }];
-    if (base !== "") {
-      entries.push({ source: `${base}/`, destination: to, permanent: true });
-    }
-    return entries;
-  });
-}
-
 const nextConfig: NextConfig = {
   trailingSlash: false,
   async redirects() {
-    return buildRedirects();
+    return redirectMap.map(({ from, to }) => ({
+      source: from,
+      destination: to,
+      permanent: true,
+    }));
   },
 };
 
