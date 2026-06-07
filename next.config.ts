@@ -5,8 +5,12 @@ import type { NextConfig } from "next";
  * Every legacy URL points to its consolidated new home (page + section anchor).
  * Next.js matches these server-side before rendering. permanent: true = HTTP 308/301.
  *
- * The old site used trailing slashes. Next.js (with default trailingSlash: false)
- * normalizes /foo/ -> /foo, so a single source "/foo" catches both forms.
+ * TRAILING SLASH: the old WordPress site indexed every URL WITH a trailing slash
+ * (e.g. /virus-removal/). With trailingSlash:false, Next would first 308 /foo/ -> /foo
+ * and THEN hit our redirect = a 2-hop chain on every legacy URL (verified 2026-06-07).
+ * To keep authority transfer to a single clean hop, we emit BOTH a slash-less and a
+ * slashed source for every entry, each pointing directly at the final destination.
+ * See buildRedirects() below.
  */
 
 const redirectMap: { from: string; to: string }[] = [
@@ -56,13 +60,25 @@ const redirectMap: { from: string; to: string }[] = [
   { from: "/hello-world", to: "/" },
 ];
 
+/**
+ * Expand each entry into two redirects: slash-less and slashed, both -> final
+ * destination in ONE hop. Skips the slashed variant for "/" (no such thing).
+ */
+function buildRedirects() {
+  return redirectMap.flatMap(({ from, to }) => {
+    const base = from.replace(/\/$/, "");
+    const entries = [{ source: base, destination: to, permanent: true }];
+    if (base !== "") {
+      entries.push({ source: `${base}/`, destination: to, permanent: true });
+    }
+    return entries;
+  });
+}
+
 const nextConfig: NextConfig = {
+  trailingSlash: false,
   async redirects() {
-    return redirectMap.map(({ from, to }) => ({
-      source: from,
-      destination: to,
-      permanent: true,
-    }));
+    return buildRedirects();
   },
 };
 
