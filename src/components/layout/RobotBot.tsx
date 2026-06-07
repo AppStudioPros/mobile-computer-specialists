@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import RobotHead from "@/components/ui/RobotHead";
+import AiNodeOrb from "@/components/ui/AiNodeOrb";
 
 type Message = {
   role: "bot" | "user";
@@ -52,7 +52,7 @@ export default function RobotBot() {
         aria-label="Open chat"
       >
         <div className="text-white">
-          <RobotHead size={36} primaryColor="#ffffff" accentColor="#ffb547" />
+          <AiNodeOrb className="w-9 h-9" />
         </div>
         {!open && (
           <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[var(--color-mcs-amber)] animate-pulse" />
@@ -72,7 +72,7 @@ export default function RobotBot() {
             {/* Header */}
             <div className="px-5 py-4 mcs-gradient-blue text-white flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center backdrop-blur-sm text-white">
-                <RobotHead size={26} primaryColor="#ffffff" accentColor="#ffb547" />
+                <AiNodeOrb className="w-7 h-7" />
               </div>
               <div>
                 <div className="text-sm font-bold">MCS Assistant</div>
