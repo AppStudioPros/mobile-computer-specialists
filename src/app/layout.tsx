@@ -38,6 +38,20 @@ export const metadata: Metadata = {
     siteName: "Mobile Computer Specialists",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://mobilecomputerspecialists.com/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Mobile Computer Specialists — Denver's Mobile IT Experts",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mobile Computer Specialists | Home of the Free PC Diagnostics",
+    description: "Denver's trusted IT service for over 26 years. We come to you. Free diagnostics, no trip fee.",
+    images: ["https://mobilecomputerspecialists.com/opengraph-image"],
   },
   robots: {
     index: true,
