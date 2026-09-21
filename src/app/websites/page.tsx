@@ -70,11 +70,33 @@ export const metadata: Metadata = {
   title: "Websites | Mobile Computer Specialists",
   description:
     "Need a website? Mobile Computer Specialists partners with Web Design Pros 365 for modern, fast websites built on Next.js. Free consultation.",
+  alternates: { canonical: "https://mobilecomputerspecialists.com/websites" },
+};
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Web Design and Development Denver",
+  serviceType: "Web Design",
+  description: "Modern, fast websites built on Next.js for Denver businesses. Website design, development, security, domain and hosting, and branding through Web Design Pros 365.",
+  provider: { "@type": "LocalBusiness", name: "Mobile Computer Specialists", url: "https://mobilecomputerspecialists.com" },
+  areaServed: { "@type": "City", name: "Denver, CO" },
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://mobilecomputerspecialists.com" },
+    { "@type": "ListItem", position: 2, name: "Websites", item: "https://mobilecomputerspecialists.com/websites" },
+  ],
 };
 
 export default function WebsitesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <PageHero
         eyebrow="Websites"
         title="We build websites too, as"

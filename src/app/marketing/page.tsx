@@ -31,12 +31,34 @@ const flagshipServices = [
 export const metadata: Metadata = {
   title: "Marketing | Mobile Computer Specialists",
   description:
-    "Grow your business with modern marketing. AI Visibility, SEO, AEO, GEO, digital advertising, and brand growth through our sister company Web Design Pros 365.",
+    "Grow your business with modern marketing. AI Visibility, SEO, AEO, GEO, digital advertising, and brand growth through Web Design Pros 365.",
+  alternates: { canonical: "https://mobilecomputerspecialists.com/marketing" },
+};
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Digital Marketing and SEO Denver",
+  serviceType: "Digital Marketing",
+  description: "AI Visibility (SEO + AEO + GEO), digital advertising, social media, brand and design for Denver businesses. Answer Engine Optimization to get cited by ChatGPT, Claude, and Gemini.",
+  provider: { "@type": "LocalBusiness", name: "Mobile Computer Specialists", url: "https://mobilecomputerspecialists.com" },
+  areaServed: { "@type": "City", name: "Denver, CO" },
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://mobilecomputerspecialists.com" },
+    { "@type": "ListItem", position: 2, name: "Marketing", item: "https://mobilecomputerspecialists.com/marketing" },
+  ],
 };
 
 export default function MarketingPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <PageHero
         eyebrow="Marketing"
         title="Marketing that drives"
