@@ -18,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/websites", priority: 0.6, freq: "monthly" },
     { path: "/marketing", priority: 0.6, freq: "monthly" },
     { path: "/blog", priority: 0.6, freq: "weekly" },
+    // GEO landing pages
+    { path: "/computer-repair-denver", priority: 0.9, freq: "monthly" },
+    { path: "/computer-repair-arvada", priority: 0.85, freq: "monthly" },
+    { path: "/computer-repair-lakewood", priority: 0.85, freq: "monthly" },
+    { path: "/computer-repair-littleton", priority: 0.85, freq: "monthly" },
+    { path: "/computer-repair-westminster", priority: 0.85, freq: "monthly" },
   ];
 
   const staticEntries: MetadataRoute.Sitemap = routes.map((r) => ({
