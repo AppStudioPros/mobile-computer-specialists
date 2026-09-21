@@ -31,8 +31,39 @@ export default async function BlogPostPage({
   const post = posts.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const BASE = "https://mobilecomputerspecialists.com";
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    url: `${BASE}/blog/${post.slug}`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE}/blog/${post.slug}` },
+    author: { "@type": "Organization", name: "Mobile Computer Specialists", url: BASE },
+    publisher: {
+      "@type": "Organization",
+      name: "Mobile Computer Specialists",
+      url: BASE,
+      logo: { "@type": "ImageObject", url: `${BASE}/mcs-logo-og.jpg` },
+    },
+    ...(post.category ? { articleSection: post.category } : {}),
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${BASE}/blog/${post.slug}` },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <PageHero
         eyebrow={post.category}
         title={post.title}
