@@ -106,27 +106,29 @@ export default async function Image() {
 
           {/* Headline */}
           <div style={{
+            display: 'flex',
+            flexDirection: 'column',
             fontSize: 38,
             fontWeight: 800,
             color: '#ffffff',
             lineHeight: 1.15,
             marginBottom: 16,
           }}>
-            Mobile Computer
-            <br />
-            Specialists
+            <span>Mobile Computer</span>
+            <span>Specialists</span>
           </div>
 
           {/* Subline */}
           <div style={{
+            display: 'flex',
+            flexDirection: 'column',
             fontSize: 17,
             color: 'rgba(255,255,255,0.6)',
             lineHeight: 1.5,
             marginBottom: 28,
           }}>
-            We come to you. Free diagnostics.
-            <br />
-            No trip fee. No obligation.
+            <span>We come to you. Free diagnostics.</span>
+            <span>No trip fee. No obligation.</span>
           </div>
 
           {/* Pills */}
