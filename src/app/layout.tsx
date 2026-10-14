@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from '@vercel/analytics/react';
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -76,6 +77,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <RobotBot />
+        <Analytics />
       </body>
     </html>
   );
