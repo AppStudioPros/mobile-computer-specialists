@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Static routes with priority weighting (home highest, legal/blog lower).
   const routes: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
     { path: "/", priority: 1.0, freq: "weekly" },
+    { path: "/services", priority: 0.8, freq: "monthly" },
     { path: "/computer-repairs", priority: 0.9, freq: "monthly" },
     { path: "/custom-pcs", priority: 0.9, freq: "monthly" },
     { path: "/business-technologies", priority: 0.9, freq: "monthly" },

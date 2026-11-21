@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Computer Repair Denver CO | Mobile PC & Mac Repair | Mobile Computer Specialists",
+  title: "Denver Computer Repair | Mobile PC & Mac Service",
   description:
     "Mobile computer repair in Denver, CO. We come to your home or office — free PC diagnostic, PC and Mac repair, virus removal, data recovery. No trip fee. 26+ years serving Denver.",
   alternates: { canonical: "https://mobilecomputerspecialists.com/computer-repair-denver" },
@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Mobile Computer Specialists — Denver Computer Repair",
+  name: "Mobile Computer Specialists",
   description: "Mobile computer repair in Denver, CO. Free diagnostics, PC and Mac repair, virus removal, data recovery, IT support. We come to your home or office. No trip fee.",
   url: "https://mobilecomputerspecialists.com/computer-repair-denver",
-  telephone: "+17204735153",
+  telephone: "+17202760797",
   areaServed: [
     { "@type": "City", name: "Denver" },
     { "@type": "City", name: "Five Points" },
@@ -93,10 +93,16 @@ export default function DenverComputerRepairPage() {
       {/* Intro */}
       <section className="bg-white py-16 md:py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: "#0d1f3c" }}>Denver's Mobile Computer Repair Experts</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: "#0d1f3c" }}>On-Site Computer Repair for Denver Homes and Offices</h2>
           <p className="text-base md:text-lg leading-relaxed" style={{ color: "#4a5568" }}>
-            When your computer breaks down in Denver, you shouldn't have to unplug everything, haul it across town, and wait days for a diagnosis. Mobile Computer Specialists has been coming to Denver homes and offices since 1998 — 26+ years of on-site repairs with a simple promise: free diagnostic, honest quote, real fix. We repair every Windows PC and Mac, handle virus removal, data recovery, IT support, and computer cleanup. No trip fee. No obligation. Just real help that shows up.
+            We visit Denver homes and offices for PC and Mac repair. If a workstation keeps losing its network connection or a home computer only has trouble when it connects to a printer or monitor, keep the usual equipment connected for the visit. It helps us see what is happening in the setup you use every day.
           </p>
+          <p className="mt-4 text-base leading-relaxed" style={{ color: "#4a5568" }}>
+            The visit starts with a free diagnostic and there is no trip fee. We explain what we find and quote the work before you decide. Many repairs can be done during the visit. If the repair needs a part or more bench time, we explain the next step first.
+          </p>
+          <Link href="/service-area" className="mt-5 inline-block font-semibold text-blue-700 underline underline-offset-4">
+            See the full service area
+          </Link>
         </div>
       </section>
 
@@ -139,7 +145,7 @@ export default function DenverComputerRepairPage() {
         <Link href="/contact" className="inline-block uppercase tracking-widest text-sm font-bold px-14 py-4 rounded-lg text-white" style={{ backgroundColor: "#2563eb" }}>
           Book a Free Diagnostic
         </Link>
-        <p className="mt-8 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Mobile Computer Specialists | mobilecomputerspecialists.com | (720) 473-5153</p>
+        <p className="mt-8 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}><a href="tel:+17202760797" className="text-white underline underline-offset-4">Call 720-276-0797</a></p>
       </section>
     </>
   );

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Computer Repair Lakewood CO | Mobile PC & Mac Repair | Mobile Computer Specialists",
+  title: "Lakewood Computer Repair | Mobile PC & Mac Service",
   description:
     "Mobile computer repair in Lakewood, CO. We come to your home or office — free PC diagnostic, PC and Mac repair, virus removal, data recovery. No trip fee. 26+ years serving the Denver metro.",
   alternates: { canonical: "https://mobilecomputerspecialists.com/computer-repair-lakewood" },
@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Mobile Computer Specialists — Lakewood Computer Repair",
+  name: "Mobile Computer Specialists",
   description: "Mobile computer repair in Lakewood, CO. Free diagnostics, PC and Mac repair, virus removal, data recovery, IT support. We come to your home or office. No trip fee.",
   url: "https://mobilecomputerspecialists.com/computer-repair-lakewood",
-  telephone: "+17204735153",
+  telephone: "+17202760797",
   areaServed: [
     { "@type": "City", name: "Lakewood" },
     { "@type": "City", name: "Wheat Ridge" },
@@ -88,10 +88,16 @@ export default function LakewoodComputerRepairPage() {
 
       <section className="bg-white py-16 md:py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: "#0d1f3c" }}>Lakewood's Mobile Computer Repair Service</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: "#0d1f3c" }}>Lakewood Computer Repair From Belmar to Green Mountain</h2>
           <p className="text-base md:text-lg leading-relaxed" style={{ color: "#4a5568" }}>
-            Lakewood is one of the busiest communities in the Denver metro, and computer problems don't wait for a convenient time. Mobile Computer Specialists comes to you — whether you're near Belmar, Green Mountain, or anywhere in between. Free diagnostic, no trip fee, and repairs done at your home or office by the same team that has served west Denver for over 26 years. Slow laptop, crashed hard drive, virus infection, Mac that won't start — we handle it all on-site.
+            We make home and office visits in Lakewood, including the Belmar and Green Mountain areas. If a laptop charges intermittently or a desktop loses its display, have the charger, monitor, or dock you normally use available. Checking those together can help narrow down whether the problem is with the computer or something connected to it.
           </p>
+          <p className="mt-4 text-base leading-relaxed" style={{ color: "#4a5568" }}>
+            The visit starts with a free diagnostic and there is no trip fee. We explain what we find and quote the work before you decide. Many repairs can be done during the visit. If the repair needs a part or more bench time, we explain the next step first.
+          </p>
+          <Link href="/service-area" className="mt-5 inline-block font-semibold text-blue-700 underline underline-offset-4">
+            See the full service area
+          </Link>
         </div>
       </section>
 
@@ -129,7 +135,7 @@ export default function LakewoodComputerRepairPage() {
         <Link href="/contact" className="inline-block uppercase tracking-widest text-sm font-bold px-14 py-4 rounded-lg text-white" style={{ backgroundColor: "#2563eb" }}>
           Book a Free Diagnostic
         </Link>
-        <p className="mt-8 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Mobile Computer Specialists | mobilecomputerspecialists.com | (720) 473-5153</p>
+        <p className="mt-8 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}><a href="tel:+17202760797" className="text-white underline underline-offset-4">Call 720-276-0797</a></p>
       </section>
     </>
   );

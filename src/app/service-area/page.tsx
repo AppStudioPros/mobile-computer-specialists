@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/ui/PageHero";
 import PageCta from "@/components/ui/PageCta";
+import { repairCities } from "@/data/repair-cities";
 
 export const metadata: Metadata = {
   title:
@@ -11,12 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/service-area" },
 };
 
-const cities = [
-  "Arvada",
-  "Denver",
-  "Lakewood",
-  "Littleton",
-  "Westminster",
+const otherCities = [
   "Wheat Ridge",
   "Commerce City",
   "Broomfield",
@@ -25,6 +21,8 @@ const cities = [
   "Golden",
   "Englewood",
 ];
+
+const cities = [...repairCities.map(({ name }) => name), ...otherCities];
 
 const counties = [
   "Adams County",
@@ -99,7 +97,7 @@ export default function ServiceAreaPage() {
               Counties We Cover
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {counties.map((c, i) => (
+              {counties.map((c) => (
                 <div
                   key={c}
                   className="group relative overflow-hidden p-5 rounded-2xl mcs-card-light shadow-sm hover:shadow-md hover:border-[var(--color-mcs-amber)]/50 transition-all"
@@ -122,7 +120,16 @@ export default function ServiceAreaPage() {
               Cities &amp; Towns We Serve
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-              {cities.map((c) => (
+              {repairCities.map(({ name, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="rounded-xl border border-[var(--color-mcs-line)] bg-[var(--color-mcs-page-2)] px-4 py-3 text-sm font-semibold text-[var(--color-mcs-text)] underline underline-offset-4 hover:border-[var(--color-mcs-amber)]"
+                >
+                  {name} computer repair
+                </Link>
+              ))}
+              {otherCities.map((c) => (
                 <div
                   key={c}
                   className="px-4 py-3 rounded-xl bg-[var(--color-mcs-page-2)] border border-[var(--color-mcs-line)] text-sm font-semibold text-[var(--color-mcs-text)]"

@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { repairCities } from "@/data/repair-cities";
 import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import PageCta from "@/components/ui/PageCta";
@@ -57,6 +59,16 @@ export default function ComputerRepairsPage() {
       />
       <FreeDiagnosticBanner />
       <RepairsList />
+      <section className="mx-auto max-w-5xl px-6 py-14">
+        <h2 className="mb-3 text-2xl font-bold">Find mobile computer repair near you</h2>
+        <p className="mb-5">We visit homes and offices across the Denver metro for free diagnostics and computer repair.</p>
+        <ul className="flex flex-wrap gap-x-6 gap-y-3">
+          {repairCities.map(({ name, href }) => (
+            <li key={href}><Link href={href} className="underline underline-offset-4">{name} computer repair</Link></li>
+          ))}
+        </ul>
+        <p className="mt-5"><Link href="/service-area" className="underline underline-offset-4">See the full service area</Link></p>
+      </section>
       <PageCta
         title="Stuck with a busted computer?"
         subtitle="Book a free diagnostic and we&apos;ll come take a look. No trip fee. No obligation."

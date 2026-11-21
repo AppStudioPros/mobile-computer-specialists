@@ -1,20 +1,7 @@
 import type { NextConfig } from "next";
 
-/**
- * 301 redirect map — preserves SEO authority from the old WordPress site.
- * Every legacy URL points to its consolidated new home (page + section anchor).
- * Next.js matches these server-side before rendering. permanent: true = HTTP 308/301.
- *
- * TRAILING SLASH (verified 2026-06-07): the old WordPress site indexed every URL WITH
- * a trailing slash (e.g. /virus-removal/). With trailingSlash:false, Next normalizes
- * /foo/ -> /foo with its OWN 308 FIRST, then hits our redirect = a 2-hop permanent chain
- * on the slashed (indexed) form. We accept this: a 308 -> 308 chain to the same final
- * destination passes full authority and Google handles short permanent chains fine.
- * Forcing single-hop would require trailingSlash:true + reconciling all sitemap/canonical
- * URLs, a bigger real-world risk than a harmless second hop. Decision: keep slash-less
- * canonical URLs, accept the 2-hop on legacy slashed URLs.
- */
-
+// Keep slash-less canonical URLs. Older slashed URLs may first go through
+// Next.js slash normalization before reaching the matching permanent redirect.
 const redirectMap: { from: string; to: string }[] = [
   // --- Computer Repairs consolidation ---
   { from: "/computer-repair", to: "/computer-repairs" },
@@ -26,6 +13,7 @@ const redirectMap: { from: string; to: string }[] = [
 
   // --- Custom PCs consolidation ---
   { from: "/custom-pc", to: "/custom-pcs" },
+  { from: "/gaming-pc-build", to: "/custom-pcs#gaming" },
   { from: "/gaming-pc-builds", to: "/custom-pcs#gaming" },
   { from: "/workstations", to: "/custom-pcs#workstations" },
 
@@ -46,20 +34,10 @@ const redirectMap: { from: string; to: string }[] = [
   // --- Business Technologies rename (was Managed Services) ---
   { from: "/managed-services", to: "/business-technologies" },
 
-  // --- Services hub: send to home (nav covers service navigation) ---
-  { from: "/services", to: "/" },
-
-  // --- WooCommerce shop pages (abandoned — no e-commerce on new site) ---
-  { from: "/shop", to: "/contact" },
-  { from: "/cart", to: "/contact" },
-  { from: "/checkout", to: "/contact" },
-  { from: "/my-account", to: "/contact" },
-
-  // --- Fix-A-Fone: partnership ended, hard cutoff to home ---
-  { from: "/fix-a-fone", to: "/" },
-
-  // --- Default WP placeholder post ---
-  { from: "/hello-world", to: "/" },
+  // The old services directory has a replacement at /services.
+  // The catalog's closest current match is the custom PC page.
+  { from: "/shop", to: "/custom-pcs" },
+  // Retired checkout, account, partner, and placeholder pages have no equivalent.
 ];
 
 const nextConfig: NextConfig = {
